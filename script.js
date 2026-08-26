@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Hasta Jothi website loaded successfully!");
 
-    /* =====================================================
+    /* ====================================================
        01. ELEMENT SELECTORS
     ===================================================== */
 

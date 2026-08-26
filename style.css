@@ -1,6 +1,7 @@
 /* =========================================================
    HASTA JOTHI MEDITATION & HEALING CENTRE
-   ADVANCED LEVEL - CLEAN CSS
+   FINAL COMPLETE STYLE.CSS
+   LIGHT MODE + DARK MODE + RESPONSIVE + ANIMATIONS
    ========================================================= */
 
 
@@ -9,42 +10,33 @@
    ========================================================= */
 
 :root {
+    --deep-green: #0b2a20;
+    --forest-green: #173f32;
+    --sage-green: #3f6b55;
+    --soft-green: #a8c7b5;
 
-    --deep-green: #0B2A20;
-    --forest-green: #173F32;
-    --sage-green: #3F6B55;
-    --soft-green: #A8C7B5;
+    --gold: #c9a96e;
+    --light-gold: #e7c98f;
 
-    --gold: #C9A96E;
-    --light-gold: #E7C98F;
-
-    --cream: #FAF7EF;
-    --warm-white: #FFFDF8;
-    --white: #FFFFFF;
+    --cream: #faf7ef;
+    --warm-white: #fffdf8;
+    --white: #ffffff;
 
     --dark-text: #183128;
     --body-text: #526057;
-    --muted-text: #7A857E;
+    --muted-text: #7a857e;
 
     --border: rgba(11, 42, 32, 0.12);
 
-    --shadow-sm:
-        0 5px 20px rgba(11, 42, 32, 0.08);
-
-    --shadow-md:
-        0 15px 40px rgba(11, 42, 32, 0.12);
-
-    --shadow-lg:
-        0 25px 70px rgba(11, 42, 32, 0.18);
+    --shadow-sm: 0 5px 20px rgba(11, 42, 32, 0.08);
+    --shadow-md: 0 15px 40px rgba(11, 42, 32, 0.12);
+    --shadow-lg: 0 25px 70px rgba(11, 42, 32, 0.18);
 
     --radius-sm: 10px;
     --radius-md: 18px;
     --radius-lg: 30px;
 
-    --max-width: 1200px;
-
     --transition: all 0.35s ease;
-
 }
 
 
@@ -58,12 +50,10 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
 }
-
 
 body {
     font-family:
@@ -84,23 +74,16 @@ body {
         color 0.35s ease;
 }
 
-
-/* =========================================================
-   03. GENERAL ELEMENTS
-   ========================================================= */
-
 img {
     display: block;
     width: 100%;
     max-width: 100%;
 }
 
-
 a {
     color: inherit;
     text-decoration: none;
 }
-
 
 button,
 input,
@@ -109,11 +92,9 @@ textarea {
     font: inherit;
 }
 
-
 button {
     cursor: pointer;
 }
-
 
 ::selection {
     background: var(--light-gold);
@@ -122,7 +103,7 @@ button {
 
 
 /* =========================================================
-   04. ACCESSIBILITY
+   03. ACCESSIBILITY
    ========================================================= */
 
 .skip-link {
@@ -145,14 +126,13 @@ button {
     transition: var(--transition);
 }
 
-
 .skip-link:focus {
     top: 20px;
 }
 
 
 /* =========================================================
-   05. COMMON SECTION
+   04. COMMON SECTION
    ========================================================= */
 
 section {
@@ -160,15 +140,11 @@ section {
     padding: 100px 6%;
 }
 
-
 .section-title {
     max-width: 760px;
-
     margin: 0 auto 60px;
-
     text-align: center;
 }
-
 
 .section-title small,
 .about-content small,
@@ -185,26 +161,17 @@ section {
     letter-spacing: 3px;
 }
 
-
 .section-title h2,
 .about-content h2,
 .contact-box h2 {
     color: var(--deep-green);
-
-    font-family:
-        "Maiandra GD",
-        "Segoe UI",
-        sans-serif;
 
     font-size: clamp(32px, 4vw, 52px);
 
     line-height: 1.15;
 
     font-weight: 900;
-
-    letter-spacing: 0.5px;
 }
-
 
 .section-title p {
     max-width: 650px;
@@ -218,29 +185,15 @@ section {
 
 
 /* =========================================================
-   06. HEADER / NAVIGATION
+   05. HEADER / NAVIGATION
    ========================================================= */
-header.scrolled .navbar {
-    min-height: 70px;
 
-    background:
-        rgba(255, 253, 248, 0.98);
-
-    box-shadow:
-        0 10px 35px rgba(11, 42, 32, 0.12);
-}
-
-body.dark-mode header.scrolled .navbar {
-    background:
-        rgba(7, 24, 17, 0.98);
-}
 header {
     position: sticky;
     top: 0;
 
     z-index: 1000;
 }
-
 
 .navbar {
     width: 100%;
@@ -254,25 +207,29 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    gap: 25px;
+    gap: 20px;
 
-    background: rgba(255, 253, 248, 0.94);
+    background: rgba(255, 253, 248, 0.96);
 
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
 
-    border-bottom:
-        1px solid rgba(11, 42, 32, 0.08);
+    border-bottom: 1px solid rgba(11, 42, 32, 0.08);
 
-    box-shadow:
-        0 8px 30px rgba(11, 42, 32, 0.06);
+    box-shadow: 0 8px 30px rgba(11, 42, 32, 0.06);
 
     transition: var(--transition);
 }
 
+header.scrolled .navbar {
+    min-height: 70px;
+
+    box-shadow: 0 10px 35px rgba(11, 42, 32, 0.14);
+}
+
 
 /* =========================================================
-   07. LOGO
+   06. LOGO
    ========================================================= */
 
 .logo {
@@ -283,13 +240,8 @@ header {
     flex-shrink: 0;
 }
 
-
 .logo h2 {
     color: var(--deep-green);
-
-    font-family:
-        "Maiandra GD",
-        sans-serif;
 
     font-size: 28px;
 
@@ -299,7 +251,6 @@ header {
 
     letter-spacing: 1px;
 }
-
 
 .logo span {
     margin-top: 5px;
@@ -317,7 +268,7 @@ header {
 
 
 /* =========================================================
-   08. NAV LINKS
+   07. NAV LINKS
    ========================================================= */
 
 .nav-links {
@@ -328,7 +279,6 @@ header {
 
     gap: 4px;
 }
-
 
 .nav-links a {
     position: relative;
@@ -348,7 +298,6 @@ header {
     transition: var(--transition);
 }
 
-
 .nav-links a::after {
     content: "";
 
@@ -367,14 +316,11 @@ header {
     transition: var(--transition);
 }
 
-
 .nav-links a:hover {
     color: var(--forest-green);
 
-    background:
-        rgba(231, 201, 143, 0.25);
+    background: rgba(231, 201, 143, 0.25);
 }
-
 
 .nav-links a:hover::after {
     width: 25px;
@@ -382,7 +328,7 @@ header {
 
 
 /* =========================================================
-   09. MOBILE MENU
+   08. MOBILE MENU
    ========================================================= */
 
 .menu-toggle {
@@ -399,7 +345,7 @@ header {
 
 
 /* =========================================================
-   10. THEME TOGGLE
+   09. THEME TOGGLE
    ========================================================= */
 
 .theme-toggle {
@@ -413,62 +359,51 @@ header {
 
     font-size: 1.3rem;
 
-    cursor: pointer;
-
     border-radius: 50%;
 
     transition: var(--transition);
 }
 
-
 .theme-toggle:hover {
-    background:
-        rgba(201, 169, 110, 0.18);
+    background: rgba(201, 169, 110, 0.18);
 
     transform: rotate(20deg);
 }
 
 
 /* =========================================================
-   11. HERO
+   10. HERO
+   IMPORTANT:
+   style.css and image folder are in same main folder
    ========================================================= */
 
 .hero {
     min-height: calc(100vh - 82px);
 
     display: flex;
-
     align-items: center;
 
     padding: 100px 7%;
 
     background:
-
         linear-gradient(
             90deg,
-            rgba(7, 35, 26, 0.90),
-            rgba(7, 35, 26, 0.52),
-            rgba(7, 35, 26, 0.15)
+            rgba(255, 255, 255, 0.88),
+            rgba(255, 255, 255, 0.68),
+            rgba(255, 255, 255, 0.25)
         ),
-
-        url("meditation.jpg")
-
+        url("image/meditation.jpg")
         center / cover no-repeat;
 }
-
 
 .hero-content {
     max-width: 700px;
 
-    color: white;
-
-    animation:
-        heroReveal 1s ease both;
+    animation: heroReveal 1s ease both;
 }
 
-
 .hero-content small {
-    color: var(--light-gold);
+    color: #000000;
 
     font-size: 13px;
 
@@ -477,34 +412,37 @@ header {
     letter-spacing: 4px;
 }
 
-
 .hero-content h1 {
     margin: 20px 0;
 
-    color: white;
-
-    font-family:
-        "Maiandra GD",
-        sans-serif;
+    color: #000000;
 
     font-size: clamp(50px, 7vw, 90px);
 
     line-height: 0.98;
 
     font-weight: 900;
-}
 
+    text-shadow:
+        1px 1px 3px
+        rgba(255, 255, 255, 0.7);
+}
 
 .hero-content p {
     max-width: 650px;
 
-    color: rgba(255,255,255,0.88);
+    color: #000000;
 
     font-size: 18px;
 
-    line-height: 1.8;
-}
+    font-weight: 700;
 
+    line-height: 1.8;
+
+    text-shadow:
+        1px 1px 2px
+        rgba(255, 255, 255, 0.8);
+}
 
 .hero-buttons {
     display: flex;
@@ -518,7 +456,7 @@ header {
 
 
 /* =========================================================
-   12. BUTTONS
+   11. BUTTONS
    ========================================================= */
 
 .btn {
@@ -549,29 +487,27 @@ header {
     letter-spacing: 0.5px;
 
     box-shadow:
-        0 10px 25px rgba(201, 169, 110, 0.25);
+        0 10px 25px
+        rgba(201, 169, 110, 0.25);
 
     transition: var(--transition);
 }
-
 
 .btn:hover {
     transform: translateY(-4px);
 
     box-shadow:
-        0 15px 35px rgba(201, 169, 110, 0.35);
+        0 15px 35px
+        rgba(201, 169, 110, 0.35);
 }
-
 
 .btn-outline {
     background: transparent;
 
     color: white;
 
-    border-color:
-        rgba(255,255,255,0.7);
+    border-color: rgba(255, 255, 255, 0.7);
 }
-
 
 .btn-outline:hover {
     background: white;
@@ -581,13 +517,12 @@ header {
 
 
 /* =========================================================
-   13. INTRO
+   12. INTRO
    ========================================================= */
 
 .intro {
     background: var(--cream);
 }
-
 
 .intro::before {
     content: "✦";
@@ -606,7 +541,7 @@ header {
 
 
 /* =========================================================
-   14. ABOUT
+   13. ABOUT
    ========================================================= */
 
 .about {
@@ -625,11 +560,9 @@ header {
     align-items: center;
 }
 
-
 .about-image {
     position: relative;
 }
-
 
 .about-image::before {
     content: "";
@@ -645,7 +578,6 @@ header {
     z-index: -1;
 }
 
-
 .about-image img {
     height: 580px;
 
@@ -656,13 +588,11 @@ header {
     box-shadow: var(--shadow-lg);
 }
 
-
 .about-content p {
     margin: 20px 0;
 
     color: var(--body-text);
 }
-
 
 .about-content .btn {
     margin-top: 20px;
@@ -670,27 +600,14 @@ header {
 
 
 /* =========================================================
-   15. PROGRAMS
+   14. PROGRAMS
    ========================================================= */
 
 .programs {
-    position: relative;
-
     background: var(--cream);
-
-    overflow: hidden;
 }
 
-
-/* =========================================================
-   16. PROGRAM SEARCH / FILTER
-   ========================================================= */
-
 .program-filter {
-    position: relative;
-
-    z-index: 5;
-
     width: min(900px, 90%);
 
     margin: 30px auto;
@@ -699,22 +616,16 @@ header {
 
     display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     gap: 20px;
 
-    background:
-        rgba(255,255,255,0.08);
+    background: white;
 
-    border:
-        1px solid rgba(11,42,32,0.12);
+    border: 1px solid var(--border);
 
     border-radius: var(--radius-md);
-
-    box-sizing: border-box;
 }
-
 
 .search-box,
 .category-box {
@@ -723,10 +634,7 @@ header {
     flex-direction: column;
 
     gap: 8px;
-
-    min-width: 0;
 }
-
 
 .search-box label,
 .category-box label {
@@ -737,7 +645,6 @@ header {
     font-weight: 800;
 }
 
-
 .search-box input,
 .category-box select {
     width: 100%;
@@ -746,10 +653,7 @@ header {
 
     padding: 12px 16px;
 
-    box-sizing: border-box;
-
-    border:
-        1px solid rgba(11,42,32,0.15);
+    border: 1px solid rgba(11, 42, 32, 0.15);
 
     border-radius: 10px;
 
@@ -758,12 +662,7 @@ header {
     background: white;
 
     color: var(--deep-green);
-
-    font-size: 15px;
-
-    transition: var(--transition);
 }
-
 
 .search-box input:focus,
 .category-box select:focus {
@@ -771,17 +670,10 @@ header {
 
     box-shadow:
         0 0 0 3px
-        rgba(201,169,110,0.20);
+        rgba(201, 169, 110, 0.20);
 }
 
-
 .program-result {
-    position: relative;
-
-    z-index: 4;
-
-    width: 100%;
-
     min-height: 25px;
 
     margin: 15px 0 30px;
@@ -797,7 +689,7 @@ header {
 
 
 /* =========================================================
-   17. PROGRAM CARDS
+   15. PROGRAM CARDS
    ========================================================= */
 
 .cards {
@@ -807,20 +699,17 @@ header {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 28px;
 }
-
 
 .card {
     overflow: hidden;
 
     background: white;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: var(--radius-md);
 
@@ -829,18 +718,15 @@ header {
     transition: var(--transition);
 }
 
-
 .card:hover {
     transform: translateY(-12px);
 
     box-shadow: var(--shadow-lg);
 }
 
-
 .card.filter-hidden {
     display: none;
 }
-
 
 .card-image {
     position: relative;
@@ -850,21 +736,17 @@ header {
     height: 260px;
 }
 
-
 .card-image img {
     height: 100%;
 
     object-fit: cover;
 
-    transition:
-        transform 0.7s ease;
+    transition: transform 0.7s ease;
 }
-
 
 .card:hover .card-image img {
     transform: scale(1.08);
 }
-
 
 .card-number {
     position: absolute;
@@ -881,21 +763,16 @@ header {
 
     border-radius: 50%;
 
-    background:
-        rgba(255,255,255,0.90);
+    background: rgba(255, 255, 255, 0.90);
 
     color: var(--deep-green);
 
     font-weight: 900;
-
-    box-shadow: var(--shadow-sm);
 }
-
 
 .card-content {
     padding: 28px;
 }
-
 
 .card-content h3 {
     margin-bottom: 12px;
@@ -907,13 +784,11 @@ header {
     font-weight: 900;
 }
 
-
 .card-content p {
     margin-bottom: 20px;
 
     color: var(--body-text);
 }
-
 
 .card-content a {
     color: var(--sage-green);
@@ -921,14 +796,13 @@ header {
     font-weight: 900;
 }
 
-
 .card-content a:hover {
     color: var(--gold);
 }
 
 
 /* =========================================================
-   18. SPECIAL PROGRAM CARD
+   16. SPECIAL PROGRAM CARD
    ========================================================= */
 
 .special-card {
@@ -946,11 +820,21 @@ header {
         );
 }
 
-
 .special-card .card-content {
     padding: 40px;
 }
 
+.special-card .card-content > img {
+    width: 100%;
+
+    height: 260px;
+
+    margin-bottom: 25px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+}
 
 .special-card .card-number {
     position: static;
@@ -960,16 +844,13 @@ header {
     background: var(--gold);
 }
 
-
 .special-card h3 {
     color: white;
 }
 
-
 .special-card p {
-    color: rgba(255,255,255,0.75);
+    color: rgba(255, 255, 255, 0.75);
 }
-
 
 .special-card a {
     color: var(--light-gold);
@@ -977,7 +858,7 @@ header {
 
 
 /* =========================================================
-   19. BENEFITS
+   17. BENEFITS
    ========================================================= */
 
 .benefit-grid {
@@ -987,12 +868,10 @@ header {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 
     gap: 20px;
 }
-
 
 .benefit {
     padding: 35px 25px;
@@ -1001,8 +880,7 @@ header {
 
     background: white;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: var(--radius-md);
 
@@ -1010,7 +888,6 @@ header {
 
     transition: var(--transition);
 }
-
 
 .benefit:hover {
     transform: translateY(-8px);
@@ -1020,7 +897,6 @@ header {
     box-shadow: var(--shadow-md);
 }
 
-
 .benefit > span {
     display: block;
 
@@ -1028,7 +904,6 @@ header {
 
     font-size: 38px;
 }
-
 
 .benefit h3 {
     margin-bottom: 10px;
@@ -1040,7 +915,6 @@ header {
     font-weight: 900;
 }
 
-
 .benefit p {
     color: var(--body-text);
 
@@ -1049,23 +923,20 @@ header {
 
 
 /* =========================================================
-   20. HEALING BENEFITS
+   18. HEALING BENEFITS
    ========================================================= */
 
 .healing-benefits {
     background: var(--deep-green);
 }
 
-
 .healing-benefits .section-title h2 {
     color: white;
 }
 
-
 .healing-benefits .section-title p {
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.75);
 }
-
 
 .healing-list {
     max-width: 1000px;
@@ -1074,12 +945,10 @@ header {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 15px;
 }
-
 
 .healing-list > div {
     display: flex;
@@ -1090,25 +959,20 @@ header {
 
     padding: 22px;
 
-    border:
-        1px solid rgba(255,255,255,0.10);
+    border: 1px solid rgba(255, 255, 255, 0.10);
 
     border-radius: 15px;
 
-    background:
-        rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
 
     transition: var(--transition);
 }
 
-
 .healing-list > div:hover {
     transform: translateX(7px);
 
-    background:
-        rgba(255,255,255,0.09);
+    background: rgba(255, 255, 255, 0.09);
 }
-
 
 .healing-list span {
     flex-shrink: 0;
@@ -1120,20 +984,18 @@ header {
     font-weight: 900;
 }
 
-
 .healing-list p {
-    color: rgba(255,255,255,0.82);
+    color: rgba(255, 255, 255, 0.82);
 }
 
 
 /* =========================================================
-   21. SCHEDULE
+   19. SCHEDULE
    ========================================================= */
 
 .schedule {
     background: var(--cream);
 }
-
 
 .table-container {
     max-width: 1000px;
@@ -1147,7 +1009,6 @@ header {
     box-shadow: var(--shadow-md);
 }
 
-
 table {
     width: 100%;
 
@@ -1155,7 +1016,6 @@ table {
 
     background: white;
 }
-
 
 caption {
     padding: 18px;
@@ -1166,7 +1026,6 @@ caption {
 
     font-weight: 800;
 }
-
 
 th {
     padding: 20px;
@@ -1180,26 +1039,21 @@ th {
     font-weight: 900;
 }
 
-
 td {
     padding: 20px;
 
-    border-bottom:
-        1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 
     color: var(--body-text);
 }
-
 
 tbody tr {
     transition: var(--transition);
 }
 
-
 tbody tr:hover {
-    background: #F8F3E8;
+    background: #f8f3e8;
 }
-
 
 tbody tr:last-child td {
     border-bottom: 0;
@@ -1207,7 +1061,7 @@ tbody tr:last-child td {
 
 
 /* =========================================================
-   22. GALLERY
+   20. GALLERY
    ========================================================= */
 
 .gallery-grid {
@@ -1217,12 +1071,10 @@ tbody tr:last-child td {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 25px;
 }
-
 
 .gallery-grid figure {
     position: relative;
@@ -1236,21 +1088,17 @@ tbody tr:last-child td {
     box-shadow: var(--shadow-md);
 }
 
-
 .gallery-grid img {
     height: 100%;
 
     object-fit: cover;
 
-    transition:
-        transform 0.7s ease;
+    transition: transform 0.7s ease;
 }
-
 
 .gallery-grid figure:hover img {
     transform: scale(1.08);
 }
-
 
 .gallery-grid figcaption {
     position: absolute;
@@ -1268,19 +1116,18 @@ tbody tr:last-child td {
     background:
         linear-gradient(
             transparent,
-            rgba(0,0,0,0.75)
+            rgba(0, 0, 0, 0.75)
         );
 }
 
 
 /* =========================================================
-   23. TESTIMONIALS
+   21. TESTIMONIALS
    ========================================================= */
 
 .testimonials {
     background: var(--cream);
 }
-
 
 .testimonial-grid {
     max-width: 1150px;
@@ -1289,16 +1136,12 @@ tbody tr:last-child td {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 25px;
 }
 
-
 .testimonial {
-    position: relative;
-
     padding: 35px;
 
     background: white;
@@ -1310,13 +1153,11 @@ tbody tr:last-child td {
     transition: var(--transition);
 }
 
-
 .testimonial:hover {
     transform: translateY(-8px);
 
     box-shadow: var(--shadow-md);
 }
-
 
 .stars {
     margin-bottom: 20px;
@@ -1325,7 +1166,6 @@ tbody tr:last-child td {
 
     letter-spacing: 4px;
 }
-
 
 .testimonial blockquote {
     margin-bottom: 25px;
@@ -1339,7 +1179,6 @@ tbody tr:last-child td {
     line-height: 1.8;
 }
 
-
 .testimonial cite {
     color: var(--sage-green);
 
@@ -1352,7 +1191,7 @@ tbody tr:last-child td {
 
 
 /* =========================================================
-   24. BOOKING
+   22. BOOKING
    ========================================================= */
 
 .booking {
@@ -1364,16 +1203,13 @@ tbody tr:last-child td {
         );
 }
 
-
 .booking .section-title h2 {
     color: white;
 }
 
-
 .booking .section-title p {
-    color: rgba(255,255,255,0.75);
+    color: rgba(255, 255, 255, 0.75);
 }
-
 
 .booking-form {
     max-width: 950px;
@@ -1382,26 +1218,20 @@ tbody tr:last-child td {
 
     display: grid;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
     gap: 22px;
 
     padding: 40px;
 
-    background:
-        rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
 
-    border:
-        1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255, 255, 255, 0.12);
 
     border-radius: var(--radius-lg);
 
     backdrop-filter: blur(15px);
-
-    -webkit-backdrop-filter: blur(15px);
 }
-
 
 .form-group {
     display: flex;
@@ -1411,18 +1241,15 @@ tbody tr:last-child td {
     gap: 8px;
 }
 
-
 .form-group.full {
     grid-column: 1 / -1;
 }
-
 
 .form-group label {
     color: white;
 
     font-weight: 800;
 }
-
 
 .form-group input,
 .form-group select,
@@ -1431,28 +1258,24 @@ tbody tr:last-child td {
 
     padding: 14px 16px;
 
-    border:
-        1px solid rgba(255,255,255,0.18);
+    border: 1px solid rgba(255, 255, 255, 0.18);
 
     border-radius: 10px;
 
     outline: none;
 
-    background:
-        rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.96);
 
     color: var(--dark-text);
 
     transition: var(--transition);
 }
 
-
 .form-group textarea {
     resize: vertical;
 
     min-height: 130px;
 }
-
 
 .form-group input:focus,
 .form-group select:focus,
@@ -1461,14 +1284,12 @@ tbody tr:last-child td {
 
     box-shadow:
         0 0 0 4px
-        rgba(201,169,110,0.18);
+        rgba(201, 169, 110, 0.18);
 }
-
 
 .form-submit {
     grid-column: 1 / -1;
 }
-
 
 .form-submit .btn {
     border: none;
@@ -1476,20 +1297,18 @@ tbody tr:last-child td {
 
 
 /* =========================================================
-   25. FAQ
+   23. FAQ
    ========================================================= */
 
 .faq {
     background: var(--cream);
 }
 
-
 .faq-list {
     max-width: 900px;
 
     margin: auto;
 }
-
 
 .faq details {
     margin-bottom: 15px;
@@ -1498,21 +1317,16 @@ tbody tr:last-child td {
 
     background: white;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     border-radius: 14px;
 
     box-shadow: var(--shadow-sm);
-
-    transition: var(--transition);
 }
-
 
 .faq details:hover {
     border-color: var(--light-gold);
 }
-
 
 .faq summary {
     cursor: pointer;
@@ -1524,26 +1338,23 @@ tbody tr:last-child td {
     font-weight: 900;
 }
 
-
 .faq summary::marker {
     color: var(--gold);
 }
-
 
 .faq details p {
     margin-top: 15px;
 
     padding-top: 15px;
 
-    border-top:
-        1px solid var(--border);
+    border-top: 1px solid var(--border);
 
     color: var(--body-text);
 }
 
 
 /* =========================================================
-   26. CONTACT
+   24. CONTACT
    ========================================================= */
 
 .contact {
@@ -1554,17 +1365,13 @@ tbody tr:last-child td {
     place-items: center;
 
     background:
-
         linear-gradient(
-            rgba(11,42,32,0.88),
-            rgba(11,42,32,0.88)
+            rgba(11, 42, 32, 0.88),
+            rgba(11, 42, 32, 0.88)
         ),
-
-        url("meditation.jpg")
-
+        url("image/meditation.jpg")
         center / cover no-repeat;
 }
-
 
 .contact-box {
     max-width: 800px;
@@ -1575,46 +1382,38 @@ tbody tr:last-child td {
 
     color: white;
 
-    background:
-        rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
 
-    border:
-        1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 
     border-radius: var(--radius-lg);
 
     backdrop-filter: blur(15px);
 
-    -webkit-backdrop-filter: blur(15px);
-
     box-shadow: var(--shadow-lg);
 }
-
 
 .contact-box h2 {
     color: white;
 }
-
 
 .contact-box p {
     max-width: 600px;
 
     margin: 20px auto;
 
-    color: rgba(255,255,255,0.78);
+    color: rgba(255, 255, 255, 0.85);
 }
-
 
 .contact-box address {
     margin-top: 30px;
 
-    color: rgba(255,255,255,0.85);
+    color: rgba(255, 255, 255, 0.9);
 
     font-style: normal;
 
     line-height: 2;
 }
-
 
 .contact-box a:not(.btn) {
     color: var(--light-gold);
@@ -1622,19 +1421,13 @@ tbody tr:last-child td {
     font-weight: 700;
 }
 
-
-.contact-box a:not(.btn):hover {
-    text-decoration: underline;
-}
-
-
 .contact-actions {
     margin-top: 30px;
 }
 
 
 /* =========================================================
-   27. FOOTER
+   25. FOOTER
    ========================================================= */
 
 footer {
@@ -1642,11 +1435,10 @@ footer {
 
     text-align: center;
 
-    background: #061B15;
+    background: #061b15;
 
-    color: rgba(255,255,255,0.65);
+    color: rgba(255, 255, 255, 0.7);
 }
-
 
 footer h3 {
     margin-bottom: 8px;
@@ -1658,11 +1450,9 @@ footer h3 {
     font-weight: 900;
 }
 
-
 footer p {
     margin: 8px 0;
 }
-
 
 footer a {
     display: inline-block;
@@ -1674,14 +1464,13 @@ footer a {
     font-weight: 800;
 }
 
-
 footer a:hover {
     color: white;
 }
 
 
 /* =========================================================
-   28. PROGRAM MODAL
+   26. PROGRAM MODAL
    ========================================================= */
 
 .program-modal {
@@ -1698,8 +1487,7 @@ footer a:hover {
 
     padding: 20px;
 
-    background:
-        rgba(0,0,0,0.75);
+    background: rgba(0, 0, 0, 0.75);
 
     opacity: 0;
 
@@ -1707,11 +1495,8 @@ footer a:hover {
 
     pointer-events: none;
 
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+    transition: 0.3s ease;
 }
-
 
 .program-modal.active {
     opacity: 1;
@@ -1720,7 +1505,6 @@ footer a:hover {
 
     pointer-events: auto;
 }
-
 
 .program-modal-content {
     position: relative;
@@ -1739,24 +1523,16 @@ footer a:hover {
 
     color: white;
 
-    box-shadow:
-        0 25px 70px rgba(0,0,0,0.4);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
 
-    transform:
-        translateY(30px)
-        scale(0.95);
+    transform: translateY(30px) scale(0.95);
 
-    transition:
-        transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
-
 
 .program-modal.active .program-modal-content {
-    transform:
-        translateY(0)
-        scale(1);
+    transform: translateY(0) scale(1);
 }
-
 
 .modal-close {
     position: absolute;
@@ -1771,24 +1547,16 @@ footer a:hover {
 
     border-radius: 50%;
 
-    background:
-        rgba(255,255,255,0.12);
+    background: rgba(255, 255, 255, 0.12);
 
     color: white;
 
     font-size: 28px;
-
-    line-height: 1;
-
-    cursor: pointer;
 }
-
 
 .modal-close:hover {
-    background:
-        rgba(255,255,255,0.25);
+    background: rgba(255, 255, 255, 0.25);
 }
-
 
 .modal-number {
     display: inline-block;
@@ -1802,18 +1570,15 @@ footer a:hover {
     opacity: 0.7;
 }
 
-
 .program-modal-content h2 {
     margin-bottom: 15px;
 
     color: white;
 }
 
-
 .program-modal-content p {
     line-height: 1.8;
 }
-
 
 .modal-info {
     margin: 25px 0;
@@ -1822,502 +1587,23 @@ footer a:hover {
 
     border-radius: 12px;
 
-    background:
-        rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
 }
-
 
 .modal-info p {
     margin: 8px 0;
 }
 
 
-.modal-book {
-    display: inline-block;
-}
-
-
 /* =========================================================
-   29. ANIMATIONS
+   27. SCROLL REVEAL
    ========================================================= */
-
-@keyframes heroReveal {
-
-    from {
-        opacity: 0;
-
-        transform:
-            translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-
-}
-
-
-/* =========================================================
-   30. DARK MODE
-   ========================================================= */
-
-body.dark-mode {
-    background: #081c15;
-
-    color: #f1f5f3;
-}
-
-
-/* Header */
-
-body.dark-mode .navbar {
-    background:
-        rgba(7,24,17,0.96);
-
-    border-bottom-color:
-        rgba(255,255,255,0.08);
-}
-
-
-body.dark-mode .logo h2 {
-    color: white;
-}
-
-
-body.dark-mode .logo span {
-    color: #b8c9c1;
-}
-
-
-body.dark-mode .nav-links a {
-    color: #f1f5f3;
-}
-
-
-body.dark-mode .menu-toggle,
-body.dark-mode .theme-toggle {
-    color: white;
-}
-
-
-/* Sections */
-
-body.dark-mode .intro,
-body.dark-mode .programs,
-body.dark-mode .schedule,
-body.dark-mode .testimonials,
-body.dark-mode .faq {
-    background: #081c15;
-}
-
-
-/* Headings */
-
-body.dark-mode .section-title h2,
-body.dark-mode .about-content h2,
-body.dark-mode h3 {
-    color: white;
-}
-
-
-/* Paragraph */
-
-body.dark-mode .section-title p,
-body.dark-mode .about-content p,
-body.dark-mode .card p,
-body.dark-mode .benefit p,
-body.dark-mode .testimonial blockquote,
-body.dark-mode .faq details p {
-    color: #cbd8d2;
-}
-
-
-/* Cards */
-
-body.dark-mode .card,
-body.dark-mode .benefit,
-body.dark-mode .testimonial,
-body.dark-mode .faq details {
-    background: #10291f;
-
-    border-color:
-        rgba(255,255,255,0.08);
-}
-
-
-body.dark-mode .card-content h3,
-body.dark-mode .benefit h3,
-body.dark-mode .faq summary {
-    color: white;
-}
-
-
-/* Search */
-
-body.dark-mode .program-filter {
-    background:
-        rgba(255,255,255,0.05);
-
-    border-color:
-        rgba(255,255,255,0.10);
-}
-
-
-body.dark-mode .search-box label,
-body.dark-mode .category-box label {
-    color: white;
-}
-
-
-body.dark-mode .program-filter input,
-body.dark-mode .program-filter select {
-    background: #10291f;
-
-    color: white;
-
-    border-color: #45665a;
-}
-
-
-body.dark-mode .program-result {
-    color: var(--light-gold);
-}
-
-
-/* Schedule */
-
-body.dark-mode table {
-    background: #10291f;
-}
-
-
-body.dark-mode caption {
-    background: #10291f;
-
-    color: white;
-}
-
-
-body.dark-mode td {
-    color: #cbd8d2;
-
-    border-color: #345247;
-}
-
-
-body.dark-mode tbody tr:hover {
-    background: #17352a;
-}
-
-
-/* Theme Button */
-
-body.dark-mode .theme-toggle {
-    background: white;
-
-    color: #081c15;
-}
-
-
-/* =========================================================
-   31. RESPONSIVE - TABLET
-   ========================================================= */
-
-@media (max-width: 1050px) {
-
-    .nav-links {
-        gap: 0;
-    }
-
-
-    .nav-links a {
-        padding: 9px 8px;
-
-        font-size: 12px;
-    }
-
-
-    .cards {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .benefit-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .gallery-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .testimonial-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-}
-
-
-/* =========================================================
-   32. RESPONSIVE - MOBILE
-   ========================================================= */
-
-@media (max-width: 800px) {
-
-    section {
-        padding: 75px 5%;
-    }
-
-
-    .navbar {
-        min-height: 72px;
-
-        flex-wrap: wrap;
-    }
-
-
-    .menu-toggle {
-        display: block;
-    }
-
-
-    .nav-links {
-        display: none;
-
-        width: 100%;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        padding: 12px;
-
-        background: var(--deep-green);
-
-        border-radius: 15px;
-    }
-
-
-    .nav-links.active {
-        display: flex;
-    }
-
-
-    .nav-links a {
-        color: white;
-
-        text-align: center;
-
-        padding: 12px;
-    }
-
-
-    .nav-links a:hover {
-        color: var(--deep-green);
-
-        background: var(--light-gold);
-    }
-
-
-    .logo h2 {
-        font-size: 24px;
-    }
-
-
-    .hero {
-        min-height: 80vh;
-
-        padding: 80px 7%;
-    }
-
-
-    .hero-content h1 {
-        font-size:
-            clamp(45px, 14vw, 70px);
-    }
-
-
-    .hero-content p {
-        font-size: 16px;
-    }
-
-
-    .hero-buttons {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-
-    .about {
-        grid-template-columns: 1fr;
-
-        gap: 50px;
-    }
-
-
-    .about-image img {
-        height: 450px;
-    }
-
-
-    .cards {
-        grid-template-columns: 1fr;
-    }
-
-
-    .benefit-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .healing-list {
-        grid-template-columns: 1fr;
-    }
-
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    .booking-form {
-        grid-template-columns: 1fr;
-
-        padding: 25px;
-    }
-
-
-    .form-group.full,
-    .form-submit {
-        grid-column: auto;
-    }
-
-
-    .contact-box {
-        padding: 40px 25px;
-    }
-
-
-    .program-filter {
-        width: 92%;
-
-        grid-template-columns: 1fr;
-
-        padding: 18px;
-    }
-
-
-    .program-modal-content {
-        width: 95%;
-
-        padding: 30px 20px;
-    }
-
-}
-
-
-/* =========================================================
-   33. RESPONSIVE - SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 500px) {
-
-    .section-title {
-        margin-bottom: 40px;
-    }
-
-
-    .section-title h2 {
-        font-size: 34px;
-    }
-
-
-    .benefit-grid {
-        grid-template-columns: 1fr;
-    }
-
-
-    .hero {
-        min-height: calc(100vh - 82px);
-    }
-
-
-    .hero-content h1 {
-        font-size: 48px;
-    }
-
-
-    .card-image {
-        height: 230px;
-    }
-
-
-    .about-image img {
-        height: 350px;
-    }
-
-
-    .booking-form {
-        padding: 20px;
-    }
-
-
-    .contact-box {
-        padding: 30px 20px;
-    }
-
-}
-
-
-/* =========================================================
-   34. REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    html {
-        scroll-behavior: auto;
-    }
-
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-
-        animation-iteration-count: 1 !important;
-
-        transition-duration: 0.01ms !important;
-    }
-
-}
-/* =========================================================
-   FINAL POLISH - JAVASCRIPT UI
-========================================================= */
-
-
-/* =========================================================
-   01. SCROLL REVEAL
-========================================================= */
 
 .reveal {
     opacity: 0;
+
     transform: translateY(35px);
+
     transition:
         opacity 0.7s ease,
         transform 0.7s ease;
@@ -2325,13 +1611,14 @@ body.dark-mode .theme-toggle {
 
 .reveal.visible {
     opacity: 1;
+
     transform: translateY(0);
 }
 
 
 /* =========================================================
-   02. BACK TO TOP
-========================================================= */
+   28. BACK TO TOP
+   ========================================================= */
 
 .back-to-top {
     position: fixed;
@@ -2345,18 +1632,23 @@ body.dark-mode .theme-toggle {
     z-index: 900;
 
     display: grid;
+
     place-items: center;
 
     border: 1px solid var(--gold);
+
     border-radius: 50%;
 
     background: var(--deep-green);
+
     color: var(--light-gold);
 
     font-size: 24px;
+
     font-weight: 900;
 
     opacity: 0;
+
     visibility: hidden;
 
     transform: translateY(20px);
@@ -2368,12 +1660,15 @@ body.dark-mode .theme-toggle {
 
 .back-to-top.show {
     opacity: 1;
+
     visibility: visible;
+
     transform: translateY(0);
 }
 
 .back-to-top:hover {
     background: var(--gold);
+
     color: var(--deep-green);
 
     transform: translateY(-5px);
@@ -2381,8 +1676,8 @@ body.dark-mode .theme-toggle {
 
 
 /* =========================================================
-   03. GALLERY LIGHTBOX
-========================================================= */
+   29. GALLERY LIGHTBOX
+   ========================================================= */
 
 .lightbox {
     position: fixed;
@@ -2401,24 +1696,27 @@ body.dark-mode .theme-toggle {
     background: rgba(0, 0, 0, 0.88);
 
     opacity: 0;
+
     visibility: hidden;
 
     pointer-events: none;
 
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .lightbox.active {
     opacity: 1;
+
     visibility: visible;
+
     pointer-events: auto;
 }
 
 .lightbox-image {
     width: auto;
+
     max-width: 90%;
+
     max-height: 85vh;
 
     object-fit: contain;
@@ -2426,12 +1724,12 @@ body.dark-mode .theme-toggle {
     border-radius: 15px;
 
     box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.5);
+        0 25px 80px
+        rgba(0, 0, 0, 0.5);
 
     transform: scale(0.9);
 
-    transition:
-        transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .lightbox.active .lightbox-image {
@@ -2448,21 +1746,21 @@ body.dark-mode .theme-toggle {
     height: 50px;
 
     border: none;
+
     border-radius: 50%;
 
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
 
     color: white;
 
     font-size: 32px;
-
-    cursor: pointer;
 
     transition: var(--transition);
 }
 
 .lightbox-close:hover {
     background: var(--gold);
+
     color: var(--deep-green);
 
     transform: rotate(90deg);
@@ -2470,11 +1768,206 @@ body.dark-mode .theme-toggle {
 
 
 /* =========================================================
-   04. DARK MODE - FINAL POLISH
-========================================================= */
+   30. ANIMATIONS
+   ========================================================= */
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   31. DARK MODE - FINAL CLEAN VERSION
+   ========================================================= */
+
+body.dark-mode {
+    background: #0b1f18;
+
+    color: #f5f5f5;
+}
+
+
+/* NAVBAR */
+
+body.dark-mode .navbar {
+    background: rgba(11, 31, 24, 0.97);
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .logo h2 {
+    color: white;
+}
+
+body.dark-mode .logo span {
+    color: #b8c9c1;
+}
+
+body.dark-mode .nav-links a {
+    color: #f5f5f5;
+}
+
+body.dark-mode .menu-toggle {
+    color: white;
+}
+
+body.dark-mode .theme-toggle {
+    color: var(--light-gold);
+}
+
+
+/* NORMAL SECTIONS */
+
+body.dark-mode .intro,
+body.dark-mode .programs,
+body.dark-mode .schedule,
+body.dark-mode .testimonials,
+body.dark-mode .faq {
+    background: #0b1f18;
+}
+
+
+/* ABOUT SECTION */
+
+body.dark-mode .about {
+    color: #f5f5f5;
+}
+
+
+/* HEADINGS */
+
+body.dark-mode .section-title h2,
+body.dark-mode .about-content h2 {
+    color: white;
+}
+
+
+/* NORMAL TEXT */
+
+body.dark-mode .section-title p,
+body.dark-mode .about-content p {
+    color: #cbd8d2;
+}
+
+
+/* PROGRAM FILTER */
+
+body.dark-mode .program-filter {
+    background: #16352a;
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .search-box label,
+body.dark-mode .category-box label {
+    color: white;
+}
+
+body.dark-mode .search-box input,
+body.dark-mode .category-box select {
+    background: #10291f;
+
+    color: white;
+
+    border-color: #45665a;
+}
+
+body.dark-mode .search-box input::placeholder {
+    color: #aebdb6;
+}
+
+body.dark-mode .program-result {
+    color: var(--light-gold);
+}
+
+
+/* CARDS */
+
+body.dark-mode .card,
+body.dark-mode .benefit,
+body.dark-mode .testimonial,
+body.dark-mode .faq details {
+    background: #16352a;
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* CARD TEXT */
+
+body.dark-mode .card-content h3,
+body.dark-mode .benefit h3,
+body.dark-mode .faq summary {
+    color: white;
+}
+
+body.dark-mode .card-content p,
+body.dark-mode .benefit p,
+body.dark-mode .testimonial blockquote,
+body.dark-mode .faq details p {
+    color: #cbd8d2;
+}
+
+body.dark-mode .testimonial cite {
+    color: var(--light-gold);
+}
+
+
+/* TABLE */
+
+body.dark-mode table,
+body.dark-mode caption {
+    background: #16352a;
+
+    color: white;
+}
+
+body.dark-mode td {
+    color: #d6e1db;
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode tbody tr:hover {
+    background: #204236;
+}
+
+
+/* FORM INPUTS */
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background: #10291f;
+
+    color: white;
+
+    border-color: #45665a;
+}
+
+body.dark-mode
+.form-group input::placeholder,
+body.dark-mode
+.form-group textarea::placeholder {
+    color: #aebdb6;
+}
+
+
+/* BACK TO TOP */
 
 body.dark-mode .back-to-top {
     background: var(--light-gold);
+
     color: var(--deep-green);
 }
 
@@ -2483,9 +1976,197 @@ body.dark-mode .back-to-top:hover {
 }
 
 
+/* FOOTER */
+
+body.dark-mode footer {
+    background: #06130d;
+}
+
+
 /* =========================================================
-   05. MOBILE
-========================================================= */
+   32. RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .nav-links {
+        gap: 0;
+    }
+
+    .nav-links a {
+        padding: 9px 8px;
+
+        font-size: 12px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   33. RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    section {
+        padding: 75px 5%;
+    }
+
+    .navbar {
+        min-height: 72px;
+
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 12px;
+
+        background: var(--deep-green);
+
+        border-radius: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        color: white;
+
+        text-align: center;
+
+        padding: 12px;
+    }
+
+    .nav-links a:hover {
+        color: var(--deep-green);
+
+        background: var(--light-gold);
+    }
+
+    body.dark-mode .nav-links {
+        background: #16352a;
+    }
+
+    body.dark-mode .nav-links a {
+        color: white;
+    }
+
+    .logo h2 {
+        font-size: 24px;
+    }
+
+    .hero {
+        min-height: 80vh;
+
+        padding: 80px 7%;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(45px, 14vw, 70px);
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .about-image img {
+        height: 450px;
+    }
+
+    .program-filter {
+        width: 92%;
+
+        grid-template-columns: 1fr;
+
+        padding: 18px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .healing-list {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-form {
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+    }
+
+    .form-group.full,
+    .form-submit {
+        grid-column: auto;
+    }
+
+    .contact-box {
+        padding: 40px 25px;
+    }
+
+    .program-modal-content {
+        width: 95%;
+
+        padding: 30px 20px;
+    }
+}
+
+
+/* =========================================================
+   34. RESPONSIVE - SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 600px) {
 
@@ -2503,6 +2184,7 @@ body.dark-mode .back-to-top:hover {
 
     .lightbox-image {
         max-width: 95%;
+
         max-height: 80vh;
     }
 
@@ -2515,32 +2197,76 @@ body.dark-mode .back-to-top:hover {
 
         font-size: 26px;
     }
+}
 
+
+@media (max-width: 500px) {
+
+    .section-title {
+        margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+        font-size: 34px;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: calc(100vh - 72px);
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .card-image {
+        height: 230px;
+    }
+
+    .about-image img {
+        height: 350px;
+    }
+
+    .booking-form {
+        padding: 20px;
+    }
+
+    .contact-box {
+        padding: 30px 20px;
+    }
 }
 
 
 /* =========================================================
-   06. REDUCED MOTION
-========================================================= */
+   35. REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
 
     .reveal,
     .reveal.visible,
     .lightbox-image {
         opacity: 1;
+
         transform: none;
+
         transition: none;
     }
-
-}
-.special-card .card-content > img {
-    width: 100%;
-    height: 260px;
-
-    margin-bottom: 25px;
-
-    object-fit: cover;
-
-    border-radius: 14px;
 }

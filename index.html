@@ -1,205 +1,1092 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <!-- ================================
-         BASIC SEO
-    ================================= -->
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JQL0FFLL9"></script>
-
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag("js", new Date());
-
-    gtag("config", "G-5JQL0FFLL9");
-</script>
 
     <meta name="theme-color"
-          content="#0B2A20">
+          content="#0b2a20">
 
     <meta name="description"
-          content="Hasta Jothi Meditation & Healing Centre offers mindfulness meditation, breathing meditation, morning meditation, stress relief, healing sessions and personal wellness programs in Tenkasi, Tamil Nadu.">
+          content="Hasta Jothi Meditation & Healing Centre offers meditation, mindfulness, breathing and wellness programs.">
 
-    <meta name="keywords"
-          content="Hasta Jothi, meditation centre, meditation, mindfulness, breathing meditation, stress relief, healing, wellness, yoga, Tenkasi, Tamil Nadu">
+    <title>Hasta Jothi | Meditation & Healing Centre</title>
 
-    <meta name="author"
-          content="Hasta Jothi Meditation & Healing Centre">
+    <style>
 
-    <meta name="robots"
-          content="index, follow">
+        /* ========================================
+           RESET
+        ======================================== */
 
-    <!-- GOOGLE SEARCH CONSOLE VERIFICATION -->
-    <meta name="google-site-verification"
-          content="8mJ60s4_YzAMhRFXgQ638OwoAtKe-bKEpO_9l96K13I">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <!-- ================================
-         OPEN GRAPH
-    ================================= -->
-
-    <meta property="og:title"
-          content="Hasta Jothi | Meditation & Healing Centre">
-
-    <meta property="og:description"
-          content="Find inner peace through meditation, mindfulness, breathing and holistic wellness practices.">
-
-    <meta property="og:type"
-          content="website">
-
-    <meta property="og:url"
-          content="https://cva90.github.io/Hasta-jothi/">
-
-    <meta property="og:image"
-          content="https://cva90.github.io/Hasta-Jothi/image/meditation.jpg">
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f4ed;
+            color: #173f32;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
+        }
 
 
-    <!-- ================================
-         CANONICAL
-    ================================= -->
+        /* ========================================
+           DARK MODE
+        ======================================== */
 
-    <link rel="canonical"
-          href="https://cva90.github.io/Hasta-Jothi/">
+        body.dark-mode {
+            background: #081a14;
+            color: #eef7f1;
+        }
+
+        body.dark-mode header {
+            background: #0b2018;
+            border-bottom-color: #244638;
+        }
+
+        body.dark-mode .logo h2,
+        body.dark-mode .nav-links a,
+        body.dark-mode .section-title h2,
+        body.dark-mode .about-content h2,
+        body.dark-mode .card h3,
+        body.dark-mode .benefit h3,
+        body.dark-mode .testimonial,
+        body.dark-mode .faq summary,
+        body.dark-mode .faq p,
+        body.dark-mode .booking-form label,
+        body.dark-mode .about-content p {
+            color: #eef7f1;
+        }
+
+        body.dark-mode .intro,
+        body.dark-mode .programs,
+        body.dark-mode .schedule,
+        body.dark-mode .gallery,
+        body.dark-mode .testimonials,
+        body.dark-mode .faq {
+            background: #0d241b;
+        }
+
+        body.dark-mode .about,
+        body.dark-mode .benefits,
+        body.dark-mode .healing-benefits,
+        body.dark-mode .booking {
+            background: #081a14;
+        }
+
+        body.dark-mode .card,
+        body.dark-mode .benefit,
+        body.dark-mode .testimonial,
+        body.dark-mode .booking-form,
+        body.dark-mode .faq details,
+        body.dark-mode .program-modal-content {
+            background: #122d22;
+            color: #eef7f1;
+            border-color: #315b48;
+        }
+
+        body.dark-mode input,
+        body.dark-mode select,
+        body.dark-mode textarea {
+            background: #0b2018;
+            color: white;
+            border-color: #3d6855;
+        }
+
+        body.dark-mode .program-filter label,
+        body.dark-mode .program-result,
+        body.dark-mode .section-title p {
+            color: #c9d8cf;
+        }
 
 
-    <!-- ================================
-         TITLE
-    ================================= -->
+        /* ========================================
+           ACCESSIBILITY
+        ======================================== */
 
-    <title>
-        Hasta Jothi | Meditation & Healing Centre
-    </title>
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 20px;
+            background: #0b2a20;
+            color: white;
+            padding: 12px 20px;
+            z-index: 9999;
+            text-decoration: none;
+        }
 
-
-    <!-- ================================
-         GOOGLE FONTS
-    ================================= -->
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-          rel="stylesheet">
+        .skip-link:focus {
+            top: 20px;
+        }
 
 
-    <!-- ================================
-         CSS
-    ================================= -->
+        /* ========================================
+           HEADER
+        ======================================== */
 
-    <link rel="stylesheet"
-          href= "style.css">
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #ddd;
+            transition: 0.3s;
+        }
+
+        .navbar {
+            min-height: 82px;
+            padding: 12px 7%;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            text-decoration: none;
+            margin-right: auto;
+        }
+
+        .logo h2 {
+            color: #0b2a20;
+            font-size: 25px;
+            font-family: Georgia, serif;
+        }
+
+        .logo span {
+            font-size: 11px;
+            color: #6b776f;
+            font-weight: bold;
+        }
 
 
-    <!-- ================================
-         FAVICON
-    ================================= -->
+        /* ========================================
+           NAVIGATION
+        ======================================== */
 
-    <link rel="icon"
-        type="image/meditation.jpg" 
-        href="image/meditation.jpg">
-    
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
+        .nav-links a {
+            text-decoration: none;
+            color: #173f32;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #c9a96e;
+        }
+
+
+        /* ========================================
+           BUTTONS
+        ======================================== */
+
+        .menu-toggle,
+        .theme-toggle {
+            border: none;
+            background: transparent;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            background: #0b2a20;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 4px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #c9a96e;
+            color: #0b2a20;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #0b2a20;
+            border: 2px solid #0b2a20;
+        }
+
+        body.dark-mode .btn-outline {
+            color: white;
+            border-color: white;
+        }
+
+
+        /* ========================================
+           HERO
+        ======================================== */
+
+        .hero {
+            min-height: calc(100vh - 82px);
+
+            display: flex;
+            align-items: center;
+
+            padding: 100px 7%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.92),
+                    rgba(255, 255, 255, 0.70),
+                    rgba(255, 255, 255, 0.15)
+                ),
+                url("image/meditation.jpg")
+                center / cover no-repeat;
+        }
+
+        body.dark-mode .hero {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5, 20, 14, 0.90),
+                    rgba(5, 20, 14, 0.65),
+                    rgba(5, 20, 14, 0.20)
+                ),
+                url("image/meditation.jpg")
+                center / cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-content small {
+            color: #0b2a20;
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 4px;
+        }
+
+        body.dark-mode .hero-content small {
+            color: #e5c98e;
+        }
+
+        .hero-content h1 {
+            margin: 20px 0;
+            color: #000;
+            font-family: Georgia, serif;
+            font-size: clamp(50px, 7vw, 90px);
+            line-height: 1;
+        }
+
+        body.dark-mode .hero-content h1 {
+            color: white;
+        }
+
+        .hero-content p {
+            max-width: 650px;
+            color: #111;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.8;
+        }
+
+        body.dark-mode .hero-content p {
+            color: #e2eee7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+
+        /* ========================================
+           GENERAL SECTIONS
+        ======================================== */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 55px;
+        }
+
+        .section-title small,
+        .about-content small,
+        .contact-box small {
+            color: #c9a96e;
+            font-weight: 900;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+
+        .section-title h2,
+        .about-content h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(32px, 5vw, 55px);
+            margin: 15px 0;
+            line-height: 1.2;
+        }
+
+        .section-title p {
+            color: #68746d;
+            font-size: 17px;
+        }
+
+
+        /* ========================================
+           INTRO
+        ======================================== */
+
+        .intro {
+            background: white;
+        }
+
+
+        /* ========================================
+           ABOUT
+        ======================================== */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .about-content p {
+            margin-bottom: 18px;
+            color: #58645d;
+        }
+
+
+        /* ========================================
+           PROGRAM FILTER
+        ======================================== */
+
+        .program-filter {
+            max-width: 900px;
+            margin: 0 auto 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+
+        .search-box,
+        .category-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .program-filter label {
+            font-weight: 700;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #c9a96e;
+        }
+
+        .program-result {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+
+        /* ========================================
+           PROGRAM CARDS
+        ======================================== */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .card-image {
+            position: relative;
+        }
+
+        .card-image img,
+        .special-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #0b2a20;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+            text-transform: capitalize;
+        }
+
+        .card p {
+            color: #68746d;
+            margin-bottom: 18px;
+        }
+
+        .card a {
+            color: #c9a96e;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .special-card .card-content {
+            position: relative;
+        }
+
+        .special-card .card-number {
+            top: 15px;
+        }
+
+
+        /* ========================================
+           BENEFITS
+        ======================================== */
+
+        .benefits {
+            background: white;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .benefit {
+            padding: 30px;
+            background: #f7f4ed;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .benefit span {
+            font-size: 40px;
+        }
+
+        .benefit h3 {
+            margin: 12px 0;
+        }
+
+        .benefit p {
+            color: #68746d;
+            font-size: 14px;
+        }
+
+
+        /* ========================================
+           HEALING
+        ======================================== */
+
+        .healing-list {
+            max-width: 900px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .healing-list div {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 22px;
+            border-left: 4px solid #c9a96e;
+            background: white;
+        }
+
+        body.dark-mode .healing-list div {
+            background: #122d22;
+        }
+
+        .healing-list span {
+            font-weight: bold;
+            color: #c9a96e;
+        }
+
+
+        /* ========================================
+           SCHEDULE
+        ======================================== */
+
+        .schedule {
+            background: white;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        body.dark-mode table {
+            background: #122d22;
+        }
+
+        th {
+            background: #0b2a20;
+            color: white;
+        }
+
+        th,
+        td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+
+        /* ========================================
+           GALLERY
+        ======================================== */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .gallery figure {
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: 0.4s;
+        }
+
+        .gallery figure:hover img {
+            transform: scale(1.08);
+        }
+
+        figcaption {
+            padding: 10px;
+            background: white;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        body.dark-mode figcaption {
+            background: #122d22;
+        }
+
+
+        /* ========================================
+           TESTIMONIALS
+        ======================================== */
+
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .testimonial {
+            background: #f7f4ed;
+            padding: 35px;
+            border-radius: 8px;
+        }
+
+        .stars {
+            color: #c9a96e;
+            margin-bottom: 15px;
+        }
+
+        blockquote {
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        cite {
+            font-weight: bold;
+            color: #68746d;
+        }
+
+
+        /* ========================================
+           BOOKING
+        ======================================== */
+
+        .booking {
+            background: #eef2ed;
+        }
+
+        .booking-content {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .booking-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full,
+        .form-submit {
+            grid-column: 1 / -1;
+        }
+
+        .booking-form label {
+            font-weight: bold;
+        }
+
+
+        /* ========================================
+           FAQ
+        ======================================== */
+
+        .faq-list {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq details {
+            background: white;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .faq summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .faq details p {
+            margin-top: 15px;
+            color: #68746d;
+        }
+
+
+        /* ========================================
+           CONTACT
+        ======================================== */
+
+        .contact {
+            min-height: 650px;
+            display: grid;
+            place-items: center;
+
+            background:
+                linear-gradient(
+                    rgba(11,42,32,0.88),
+                    rgba(11,42,32,0.88)
+                ),
+                url("image/meditation.jpg")
+                center / cover no-repeat;
+
+            color: white;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 750px;
+        }
+
+        .contact-box h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(45px, 7vw, 75px);
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .contact-box p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        address {
+            font-style: normal;
+            line-height: 1.8;
+        }
+
+        address a {
+            color: #e5c98e;
+        }
+
+        .contact-actions {
+            margin-top: 30px;
+        }
+
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+
+        footer {
+            background: #061810;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        footer h3 {
+            font-family: Georgia, serif;
+            font-size: 30px;
+        }
+
+        footer p {
+            margin: 8px 0;
+            color: #cbd8d0;
+        }
+
+        footer a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #e5c98e;
+            text-decoration: none;
+        }
+
+
+        /* ========================================
+           MODAL
+        ======================================== */
+
+        .program-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 3000;
+        }
+
+        .program-modal.active {
+            display: flex;
+        }
+
+        .program-modal-content {
+            position: relative;
+            background: white;
+            color: #173f32;
+            width: min(600px, 100%);
+            padding: 45px;
+            border-radius: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            border: none;
+            background: transparent;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        .modal-number {
+            color: #c9a96e;
+            font-weight: bold;
+        }
+
+        .modal-info {
+            margin: 25px 0;
+        }
+
+
+        /* ========================================
+           BACK TO TOP
+        ======================================== */
+
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            background: #0b2a20;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+        }
+
+        .back-to-top.show {
+            display: block;
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefit-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .navbar {
+                padding: 12px 6%;
+                flex-wrap: wrap;
+            }
+
+            .menu-toggle {
+                display: block;
+                margin-left: auto;
+            }
+
+            .theme-toggle {
+                order: 2;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 650px;
+                padding: 80px 6%;
+                background-position: center;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-image img {
+                height: 400px;
+            }
+
+            .program-filter {
+                grid-template-columns: 1fr;
+            }
+
+            .cards,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-form {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+
+            .healing-list {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .benefit-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 52px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                text-align: center;
+            }
+
+        }
+
+    </style>
 </head>
 
 
 <body>
 
-    <!-- ================================
-         ACCESSIBILITY
-    ================================= -->
-
-    <a href="#main-content"
-       class="skip-link">
+    <a href="#main-content" class="skip-link">
         Skip to main content
     </a>
 
 
-    <!-- ================================
-         HEADER
-    ================================= -->
+    <!-- HEADER -->
 
     <header>
 
-        <nav class="navbar"
-             aria-label="Main navigation">
+        <nav class="navbar">
 
-            <!-- LOGO -->
+            <a href="#home" class="logo">
 
-            <a href="#home"
-               class="logo"
-               aria-label="Hasta Jothi Home">
+                <h2>Hasta Jothi</h2>
 
-                <h2>
-                    Hasta Jothi
-                </h2>
-
-                <span>
-                    Meditation & Healing Centre
-                </span>
+                <span>Meditation & Healing Centre</span>
 
             </a>
 
 
-            <!-- MOBILE MENU -->
-
             <button class="menu-toggle"
                     type="button"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false">
+                    aria-label="Open Menu">
 
                 ☰
 
             </button>
 
 
-            <!-- THEME TOGGLE -->
-
             <button class="theme-toggle"
                     type="button"
-                    aria-label="Switch to dark mode"
-                    aria-pressed="false">
+                    aria-label="Dark Mode">
 
                 🌙
 
             </button>
 
 
-            <!-- NAVIGATION -->
-
             <div class="nav-links">
 
                 <a href="#home">Home</a>
-
                 <a href="#about">About</a>
-
                 <a href="#programs">Programs</a>
-
                 <a href="#benefits">Benefits</a>
-
                 <a href="#schedule">Schedule</a>
-
                 <a href="#gallery">Gallery</a>
-
                 <a href="#testimonials">Testimonials</a>
-
                 <a href="#booking">Booking</a>
-
                 <a href="#contact">Contact</a>
 
             </div>
@@ -209,48 +1096,35 @@
     </header>
 
 
-    <!-- ================================
-         MAIN
-    ================================= -->
-
     <main id="main-content">
 
 
-        <!-- ================================
-             HERO
-        ================================= -->
+        <!-- HERO -->
 
-        <section id="home"
-                 class="hero"
-                 aria-labelledby="hero-title">
+        <section id="home" class="hero">
 
             <div class="hero-content">
 
-                <small>
-                    WELCOME TO HASTA JOTHI
-                </small>
+                <small>WELCOME TO HASTA JOTHI</small>
 
-                <h1 id="hero-title">
-                    Find Your
-                    <br>
+                <h1>
+                    Find Your<br>
                     Inner Peace
                 </h1>
 
                 <p>
                     Discover a peaceful space to relax your mind,
-                    restore your inner balance, and reconnect with
+                    restore your inner balance and reconnect with
                     yourself through meditation and mindful living.
                 </p>
 
                 <div class="hero-buttons">
 
-                    <a href="#booking"
-                       class="btn">
+                    <a href="#booking" class="btn">
                         Book A Session
                     </a>
 
-                    <a href="#programs"
-                       class="btn btn-outline">
+                    <a href="#programs" class="btn btn-outline">
                         Explore Programs
                     </a>
 
@@ -261,29 +1135,20 @@
         </section>
 
 
-        <!-- ================================
-             INTRO
-        ================================= -->
+        <!-- INTRO -->
 
-        <section class="intro"
-                 aria-labelledby="intro-title">
+        <section class="intro">
 
             <div class="section-title">
 
-                <small>
-                    PEACE • BALANCE • AWARENESS
-                </small>
+                <small>PEACE • BALANCE • AWARENESS</small>
 
-                <h2 id="intro-title">
-                    A Journey Towards
-                    Inner Peace
-                </h2>
+                <h2>A Journey Towards Inner Peace</h2>
 
                 <p>
-                    Through meditation, mindfulness, breathing practices,
+                    Through meditation, mindfulness, breathing practices
                     and holistic wellness sessions, we provide a peaceful
-                    environment for personal growth, relaxation and
-                    mindful living.
+                    environment for personal growth and relaxation.
                 </p>
 
             </div>
@@ -291,55 +1156,37 @@
         </section>
 
 
-        <!-- ================================
-             ABOUT
-        ================================= -->
+        <!-- ABOUT -->
 
-        <section id="about"
-                 class="about"
-                 aria-labelledby="about-title">
+        <section id="about" class="about">
 
             <div class="about-image">
 
-                <img src="meditation.jpg"
-                     alt="Person practicing peaceful meditation"
-                     loading="lazy">
+                <img src="image/meditation.jpg"
+                     alt="Peaceful meditation">
 
             </div>
 
 
             <div class="about-content">
 
-                <small>
-                    ABOUT OUR CENTRE
-                </small>
+                <small>ABOUT OUR CENTRE</small>
 
-                <h2 id="about-title">
-                    A Peaceful Space
-                    For Your Mind
-                </h2>
+                <h2>A Peaceful Space For Your Mind</h2>
 
                 <p>
                     Welcome to Hasta Jothi Meditation & Healing Centre,
-                    a peaceful space dedicated to meditation, mindfulness,
-                    relaxation and personal wellness.
+                    a peaceful space dedicated to meditation,
+                    mindfulness, relaxation and personal wellness.
                 </p>
 
                 <p>
-                    Our vision is to create a welcoming environment where
-                    people can take time for themselves, quiet the mind,
-                    develop awareness and discover a deeper sense of
-                    inner peace.
+                    Our vision is to create a welcoming environment
+                    where people can quiet the mind, develop awareness
+                    and discover a deeper sense of inner peace.
                 </p>
 
-                <p>
-                    Our programs are designed to encourage simple,
-                    practical and mindful habits that can become part
-                    of everyday life.
-                </p>
-
-                <a href="#programs"
-                   class="btn">
+                <a href="#programs" class="btn">
                     Explore Programs
                 </a>
 
@@ -348,34 +1195,23 @@
         </section>
 
 
-        <!-- ================================
-             PROGRAMS
-        ================================= -->
+        <!-- PROGRAMS -->
 
-        <section id="programs"
-                 class="programs"
-                 aria-labelledby="programs-title">
+        <section id="programs" class="programs">
 
             <div class="section-title">
 
-                <small>
-                    OUR PROGRAMS
-                </small>
+                <small>OUR PROGRAMS</small>
 
-                <h2 id="programs-title">
-                    Meditation & Healing
-                    Programs
-                </h2>
+                <h2>Meditation & Healing Programs</h2>
 
                 <p>
-                    Choose a practice that suits your daily lifestyle
-                    and personal wellness journey.
+                    Choose a practice that suits your lifestyle
+                    and wellness journey.
                 </p>
 
             </div>
 
-
-            <!-- PROGRAM SEARCH -->
 
             <div class="program-filter">
 
@@ -387,8 +1223,7 @@
 
                     <input type="search"
                            id="programSearch"
-                           placeholder="Search meditation, healing, wellness..."
-                           autocomplete="off">
+                           placeholder="Search programs...">
 
                 </div>
 
@@ -401,27 +1236,12 @@
 
                     <select id="programCategory">
 
-                        <option value="all">
-                            All Programs
-                        </option>
+                        <option value="all">All Programs</option>
+                        <option value="meditation">Meditation</option>
+                        <option value="breathing">Breathing</option>
+                        <option value="healing">Healing</option>
+                        <option value="wellness">Wellness</option>
 
-                        <option value="meditation">
-                            Meditation
-                        </option>
-
-                        <option value="breathing">
-                            Breathing
-                        </option>
-
-                        <option value="healing">
-                            Healing
-                        </option>
-
-                        <option value="wellness">
-                            Wellness
-                        </option>
-
-                        
                     </select>
 
                 </div>
@@ -429,49 +1249,35 @@
             </div>
 
 
-            <p id="programResult"
-               class="program-result"
-               aria-live="polite">
-            </p>
+            <p id="programResult" class="program-result"></p>
 
-
-            <!-- PROGRAM CARDS -->
 
             <div class="cards">
 
-
-                <!-- CARD 01 -->
 
                 <article class="card"
                          data-category="meditation">
 
                     <div class="card-image">
 
-                        <img src="meditation1.jpg"
-                             alt="Mindfulness meditation"
-                             loading="lazy">
+                        <img src="image/meditation1.jpg"
+                             alt="Mindfulness Meditation">
 
-                        <span class="card-number">
-                            01
-                        </span>
+                        <span class="card-number">01</span>
 
                     </div>
 
-
                     <div class="card-content">
 
-                        <h3>
-                            Mindfulness Meditation
-                        </h3>
+                        <h3>Mindfulness Meditation</h3>
 
                         <p>
-                            Mindfulness meditation is a simple practice
-                            of bringing your attention to the present
-                            moment with calmness and awareness.
+                            Bring your attention to the present moment
+                            with calmness and awareness.
                         </p>
 
-                        <a href="#booking"
-                           aria-label="Book Mindfulness Meditation">
+                        <a href="#" class="learn-more"
+                           data-program="mindfulness">
                             Learn More →
                         </a>
 
@@ -479,39 +1285,30 @@
 
                 </article>
 
-
-                <!-- CARD 02 -->
 
                 <article class="card"
                          data-category="breathing">
 
                     <div class="card-image">
 
-                        <img src="meditation2.jpg"
-                             alt="breathing meditation"
-                             loading="lazy">
+                        <img src="image/meditation2.jpg"
+                             alt="Breathing Meditation">
 
-                        <span class="card-number">
-                            02
-                        </span>
+                        <span class="card-number">02</span>
 
                     </div>
 
-
                     <div class="card-content">
 
-                        <h3>
-                            breathing Meditation
-                        </h3>
+                        <h3>Breathing Meditation</h3>
 
                         <p>
-                            Breathing meditation focuses on slow,
-                            conscious breathing to encourage relaxation,
-                            awareness and a calm state of mind.
+                            Slow and conscious breathing for relaxation,
+                            awareness and a calm mind.
                         </p>
 
-                        <a href="#booking"
-                           aria-label="Book Breathing Meditation">
+                        <a href="#" class="learn-more"
+                           data-program="breathing">
                             Learn More →
                         </a>
 
@@ -520,38 +1317,29 @@
                 </article>
 
 
-                <!-- CARD 03 -->
-
                 <article class="card"
                          data-category="meditation">
 
                     <div class="card-image">
 
-                        <img src="meditation3.png"
-                             alt="morning meditation"
-                             loading="lazy">
+                        <img src="image/meditation3.png"
+                             alt="Morning Meditation">
 
-                        <span class="card-number">
-                            03
-                        </span>
+                        <span class="card-number">03</span>
 
                     </div>
 
-
                     <div class="card-content">
 
-                        <h3>
-                            morning meditation
-                        </h3>
+                        <h3>Morning Meditation</h3>
 
                         <p>
                             Begin your day with a calm and positive
-                            mindset through quiet breathing, awareness
-                            and mindful practice.
+                            mindset through mindful practice.
                         </p>
 
-                        <a href="#booking"
-                           aria-label="Book Morning Meditation">
+                        <a href="#" class="learn-more"
+                           data-program="morning">
                             Learn More →
                         </a>
 
@@ -559,39 +1347,30 @@
 
                 </article>
 
-
-                <!-- CARD 04 -->
 
                 <article class="card"
                          data-category="meditation">
 
                     <div class="card-image">
 
-                        <img src="meditation4.png"
-                             alt="stress relief meditation"
-                             loading="lazy">
+                        <img src="image/meditation4.png"
+                             alt="Stress Relief Meditation">
 
-                        <span class="card-number">
-                            04
-                        </span>
+                        <span class="card-number">04</span>
 
                     </div>
 
-
                     <div class="card-content">
 
-                        <h3>
-                            stress relief meditation
-                        </h3>
+                        <h3>Stress Relief Meditation</h3>
 
                         <p>
-                            A calming practice using gentle breathing,
-                            mindful awareness and guided relaxation
-                            to create a peaceful break.
+                            Gentle breathing and guided relaxation
+                            for a peaceful break.
                         </p>
 
-                        <a href="#booking"
-                           aria-label="Book Stress Relief Meditation">
+                        <a href="#" class="learn-more"
+                           data-program="stress">
                             Learn More →
                         </a>
 
@@ -599,39 +1378,30 @@
 
                 </article>
 
-
-                <!-- CARD 05 -->
 
                 <article class="card"
                          data-category="healing">
 
                     <div class="card-image">
 
-                        <img src="meditation5.png"
-                             alt="healing and wellness session"
-                             loading="lazy">
+                        <img src="image/meditation5.png"
+                             alt="Healing Session">
 
-                        <span class="card-number">
-                            05
-                        </span>
+                        <span class="card-number">05</span>
 
                     </div>
 
-
                     <div class="card-content">
 
-                        <h3>
-                            healing Sessions
-                        </h3>
+                        <h3>Healing Sessions</h3>
 
                         <p>
                             Relax, reconnect with yourself and support
-                            your overall sense of well-being through
-                            guided wellness practices.
+                            your overall well-being.
                         </p>
 
-                        <a href="#booking"
-                           aria-label="Book a Healing Session">
+                        <a href="#" class="learn-more"
+                           data-program="healing">
                             Learn More →
                         </a>
 
@@ -640,67 +1410,51 @@
                 </article>
 
 
-                <!-- CARD 06 -->
-
                 <article class="card special-card"
                          data-category="wellness">
 
+                    <div class="card-image">
+
+                        <img src="image/meditation6.png"
+                             alt="Personal Wellness">
+
+                        <span class="card-number">06</span>
+
+                    </div>
+
                     <div class="card-content">
 
-                        <img src="meditation6.png"
-                             alt="personal wellness session"
-                             loading="lazy">
-
-                        <span class="card-number">
-                            06
-                        </span>
-
-                        <h3>
-                            personal Wellness
-                        </h3>
+                        <h3>Personal Wellness</h3>
 
                         <p>
-                            Take time for yourself and create a deeper
-                            connection between your mind, body, breathing
-                            and daily awareness.
+                            Create a deeper connection between your mind,
+                            body and daily awareness.
                         </p>
 
-                        <a href="#booking"
-                           aria-label="Book Personal Wellness Session">
-                            Book Session →
+                        <a href="#" class="learn-more"
+                           data-program="wellness">
+                            Learn More →
                         </a>
 
                     </div>
 
                 </article>
 
+
             </div>
 
         </section>
 
 
-        <!-- ================================
-             BENEFITS
-        ================================= -->
+        <!-- BENEFITS -->
 
-        <section id="benefits"
-                 class="benefits"
-                 aria-labelledby="benefits-title">
+        <section id="benefits" class="benefits">
 
             <div class="section-title">
 
-                <small>
-                    WELLNESS BENEFITS
-                </small>
+                <small>WELLNESS BENEFITS</small>
 
-                <h2 id="benefits-title">
-                    Benefits Of Meditation
-                </h2>
-
-                <p>
-                    Regular mindful practices can become a meaningful
-                    part of a balanced lifestyle.
-                </p>
+                <h2>Benefits Of Meditation</h2>
 
             </div>
 
@@ -708,76 +1462,51 @@
             <div class="benefit-grid">
 
                 <article class="benefit">
-                    <span aria-hidden="true">🌿</span>
+                    <span>🌿</span>
                     <h3>Inner Peace</h3>
-                    <p>
-                        Promotes relaxation and a sense of inner calm.
-                    </p>
+                    <p>Promotes relaxation and inner calm.</p>
                 </article>
 
-
                 <article class="benefit">
-                    <span aria-hidden="true">🧘</span>
+                    <span>🧘</span>
                     <h3>Relaxation</h3>
-                    <p>
-                        Encourages relaxation and helps manage
-                        everyday tension.
-                    </p>
+                    <p>Encourages relaxation and calmness.</p>
                 </article>
 
-
                 <article class="benefit">
-                    <span aria-hidden="true">🎯</span>
+                    <span>🎯</span>
                     <h3>Better Focus</h3>
-                    <p>
-                        Supports concentration through mindful awareness.
-                    </p>
+                    <p>Supports concentration and awareness.</p>
                 </article>
 
-
                 <article class="benefit">
-                    <span aria-hidden="true">☀️</span>
+                    <span>☀️</span>
                     <h3>Positive Thinking</h3>
-                    <p>
-                        Encourages a peaceful and positive mindset.
-                    </p>
+                    <p>Encourages a peaceful mindset.</p>
                 </article>
 
-
                 <article class="benefit">
-                    <span aria-hidden="true">🌙</span>
+                    <span>🌙</span>
                     <h3>Peaceful Rest</h3>
-                    <p>
-                        Supports relaxation and a peaceful bedtime routine.
-                    </p>
+                    <p>Supports a peaceful bedtime routine.</p>
                 </article>
 
-
                 <article class="benefit">
-                    <span aria-hidden="true">💚</span>
+                    <span>💚</span>
                     <h3>Emotional Balance</h3>
-                    <p>
-                        Encourages emotional awareness and balance.
-                    </p>
+                    <p>Encourages emotional awareness.</p>
                 </article>
 
-
                 <article class="benefit">
-                    <span aria-hidden="true">✨</span>
+                    <span>✨</span>
                     <h3>Self Awareness</h3>
-                    <p>
-                        Helps develop a deeper connection with yourself.
-                    </p>
+                    <p>Develop a deeper connection with yourself.</p>
                 </article>
 
-
                 <article class="benefit">
-                    <span aria-hidden="true">🌸</span>
+                    <span>🌸</span>
                     <h3>Healthy Lifestyle</h3>
-                    <p>
-                        Encourages a calm and balanced approach
-                        to everyday life.
-                    </p>
+                    <p>Encourages a balanced daily life.</p>
                 </article>
 
             </div>
@@ -785,92 +1514,42 @@
         </section>
 
 
-        <!-- ================================
-             HEALING BENEFITS
-        ================================= -->
+        <!-- HEALING BENEFITS -->
 
-        <section class="healing-benefits"
-                 aria-labelledby="healing-title">
+        <section class="healing-benefits">
 
             <div class="section-title">
 
-                <small>
-                    HEALING & WELLNESS
-                </small>
+                <small>HEALING & WELLNESS</small>
 
-                <h2 id="healing-title">
-                    Benefits Of Healing Sessions
-                </h2>
+                <h2>Benefits Of Healing Sessions</h2>
 
             </div>
 
 
             <div class="healing-list">
 
-                <div>
-                    <span>01</span>
-                    <p>
-                        Promotes deep relaxation and inner calm
-                    </p>
-                </div>
-
-                <div>
-                    <span>02</span>
-                    <p>
-                        Encourages a peaceful break from daily routines
-                    </p>
-                </div>
-
-                <div>
-                    <span>03</span>
-                    <p>
-                        Encourages emotional awareness and self-reflection
-                    </p>
-                </div>
-
-                <div>
-                    <span>04</span>
-                    <p>
-                        Supports a positive and peaceful mindset
-                    </p>
-                </div>
-
-                <div>
-                    <span>05</span>
-                    <p>
-                        Encourages mindfulness and focused awareness
-                    </p>
-                </div>
-
-                <div>
-                    <span>06</span>
-                    <p>
-                        Supports a deeper connection with yourself
-                    </p>
-                </div>
+                <div><span>01</span><p>Promotes deep relaxation and inner calm</p></div>
+                <div><span>02</span><p>Encourages a peaceful break from daily routines</p></div>
+                <div><span>03</span><p>Supports emotional awareness and self-reflection</p></div>
+                <div><span>04</span><p>Supports a positive and peaceful mindset</p></div>
+                <div><span>05</span><p>Encourages mindfulness and focused awareness</p></div>
+                <div><span>06</span><p>Supports a deeper connection with yourself</p></div>
 
             </div>
 
         </section>
 
 
-        <!-- ================================
-             SCHEDULE
-        ================================= -->
+        <!-- SCHEDULE -->
 
-        <section id="schedule"
-                 class="schedule"
-                 aria-labelledby="schedule-title">
+        <section id="schedule" class="schedule">
 
             <div class="section-title">
 
-                <small>
-                    WEEKLY PROGRAM
-                </small>
+                <small>WEEKLY PROGRAM</small>
 
-                <h2 id="schedule-title">
-                    Class Schedule
-                </h2>
+                <h2>Class Schedule</h2>
 
             </div>
 
@@ -879,30 +1558,15 @@
 
                 <table>
 
-                    <caption>
-                        Weekly meditation and healing centre schedule
-                    </caption>
-
                     <thead>
 
                         <tr>
-
-                            <th scope="col">
-                                Day
-                            </th>
-
-                            <th scope="col">
-                                Program
-                            </th>
-
-                            <th scope="col">
-                                Time
-                            </th>
-
+                            <th>Day</th>
+                            <th>Program</th>
+                            <th>Time</th>
                         </tr>
 
                     </thead>
-
 
                     <tbody>
 
@@ -939,31 +1603,15 @@
         </section>
 
 
-        <!-- ================================
-             GALLERY
-        ================================= -->
-  <!-- ================================
-             GALLERY
-        ================================= -->
+        <!-- GALLERY -->
 
-        <section id="gallery"
-                 class="gallery"
-                 aria-labelledby="gallery-title">
+        <section id="gallery" class="gallery">
 
             <div class="section-title">
 
-                <small>
-                    OUR SPACE
-                </small>
+                <small>OUR SPACE</small>
 
-                <h2 id="gallery-title">
-                    Meditation Gallery
-                </h2>
-
-                <p>
-                    A peaceful environment designed for meditation,
-                    mindful practice and personal wellness.
-                </p>
+                <h2>Meditation Gallery</h2>
 
             </div>
 
@@ -971,90 +1619,38 @@
             <div class="gallery-grid">
 
                 <figure>
-
-                    <img src="meditation.jpg"
-                         alt="peaceful meditation environment"
-                         loading="lazy">
-
-                    <figcaption>
-                        peaceful meditation environment
-                    </figcaption>
-
-                </figure>
-
-
-                <figure>
-
-                    <img src="meditation1.jpg"
-                         alt="group meditation session"
-                         loading="lazy">
-
-                    <figcaption>
-                        group meditation session
-                    </figcaption>
-
-                </figure>
-
-
-                <figure>
-
-                    <img src="meditation2.jpg"
-                         alt="breathing meditation environment"
-                         loading="lazy">
-
-                    <figcaption>
-                        breathing Meditation Environment
-                    </figcaption>
-
-                </figure>
-
-
-                <figure>
-
-                    <img src="meditation3.png"
-                         alt="mindful meditation practice"
-                         loading="lazy">
-
-                    <figcaption>
-                        mindful Meditation Practice
-                    </figcaption>
-
+                    <img src="image/meditation.jpg" alt="Meditation">
+                    <figcaption>Peaceful Meditation</figcaption>
                 </figure>
 
                 <figure>
-
-                    <img src="meditation4.png"
-                         alt="healing meditation environment"
-                         loading="lazy">
-
-                    <figcaption>
-                        healing Meditation Environment
-                    </figcaption>
-
+                    <img src="image/meditation1.jpg" alt="Meditation">
+                    <figcaption>Mindfulness</figcaption>
                 </figure>
 
                 <figure>
-
-                    <img src="meditation5.png"
-                         alt="wellness meditation environment"
-                         loading="lazy">
-
-                    <figcaption>
-                        wellness Meditation Environment
-                    </figcaption>
-
+                    <img src="image/meditation2.jpg" alt="Meditation">
+                    <figcaption>Breathing Practice</figcaption>
                 </figure>
 
                 <figure>
+                    <img src="image/meditation3.png" alt="Meditation">
+                    <figcaption>Morning Meditation</figcaption>
+                </figure>
 
-                    <img src="meditation6.png"
-                         alt="yoga meditation environment"
-                         loading="lazy">
+                <figure>
+                    <img src="image/meditation4.png" alt="Meditation">
+                    <figcaption>Stress Relief</figcaption>
+                </figure>
 
-                    <figcaption>
-                        yoga meditation environment
-                    </figcaption>
+                <figure>
+                    <img src="image/meditation5.png" alt="Healing">
+                    <figcaption>Healing Session</figcaption>
+                </figure>
 
+                <figure>
+                    <img src="image/meditation6.png" alt="Wellness">
+                    <figcaption>Personal Wellness</figcaption>
                 </figure>
 
             </div>
@@ -1062,83 +1658,59 @@
         </section>
 
 
-        <!-- ================================
-             TESTIMONIALS
-        ================================= -->
+        <!-- TESTIMONIALS -->
 
-        <section id="testimonials"
-                 class="testimonials"
-                 aria-labelledby="testimonials-title">
+        <section id="testimonials" class="testimonials">
 
             <div class="section-title">
 
-                <small>
-                    STUDENT EXPERIENCES
-                </small>
+                <small>STUDENT EXPERIENCES</small>
 
-                <h2 id="testimonials-title">
-                    What Our Students Say
-                </h2>
+                <h2>What Our Students Say</h2>
 
             </div>
 
 
             <div class="testimonial-grid">
 
-
                 <article class="testimonial">
 
-                    <div class="stars"
-                         aria-label="5 out of 5 stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <blockquote>
-                        "Meditation has helped me create
-                        a calmer and more peaceful daily routine."
+                        "Meditation has helped me create a calmer
+                        and more peaceful daily routine."
                     </blockquote>
 
-                    <cite>
-                        — Priya, Student
-                    </cite>
+                    <cite>— Priya, Student</cite>
 
                 </article>
 
 
                 <article class="testimonial">
 
-                    <div class="stars"
-                         aria-label="5 out of 5 stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <blockquote>
-                        "The breathing meditation sessions
-                        helped me become more aware and focused."
+                        "The breathing meditation sessions helped me
+                        become more aware and focused."
                     </blockquote>
 
-                    <cite>
-                        — Arun, Student
-                    </cite>
+                    <cite>— Arun, Student</cite>
 
                 </article>
 
 
                 <article class="testimonial">
 
-                    <div class="stars"
-                         aria-label="5 out of 5 stars">
-                        ★★★★★
-                    </div>
+                    <div class="stars">★★★★★</div>
 
                     <blockquote>
                         "The sessions give me a peaceful space
-                        to slow down and reconnect with myself."
+                        to reconnect with myself."
                     </blockquote>
 
-                    <cite>
-                        — Kavitha, Student
-                    </cite>
+                    <cite>— Kavitha, Student</cite>
 
                 </article>
 
@@ -1147,50 +1719,31 @@
         </section>
 
 
-        <!-- ================================
-             BOOKING
-        ================================= -->
+        <!-- BOOKING -->
 
-        <section id="booking"
-                 class="booking"
-                 aria-labelledby="booking-title">
+        <section id="booking" class="booking">
 
             <div class="booking-content">
 
                 <div class="section-title">
 
-                    <small>
-                        START YOUR JOURNEY
-                    </small>
+                    <small>START YOUR JOURNEY</small>
 
-                    <h2 id="booking-title">
-                        Book A Meditation Session
-                    </h2>
-
-                    <p>
-                        Take a peaceful step towards mindfulness,
-                        relaxation and personal wellness.
-                    </p>
+                    <h2>Book A Meditation Session</h2>
 
                 </div>
 
 
                 <form class="booking-form"
-                      id="bookingForm"
-                      action="#"
-                      method="post">
+                      id="bookingForm">
 
                     <div class="form-group">
 
-                        <label for="name">
-                            Full Name
-                        </label>
+                        <label for="name">Full Name</label>
 
                         <input type="text"
                                id="name"
-                               name="name"
                                placeholder="Enter your name"
-                               autocomplete="name"
                                required>
 
                     </div>
@@ -1198,15 +1751,11 @@
 
                     <div class="form-group">
 
-                        <label for="email">
-                            Email
-                        </label>
+                        <label for="email">Email</label>
 
                         <input type="email"
                                id="email"
-                               name="email"
                                placeholder="Enter your email"
-                               autocomplete="email"
                                required>
 
                     </div>
@@ -1214,56 +1763,28 @@
 
                     <div class="form-group">
 
-                        <label for="phone">
-                            Phone
-                        </label>
+                        <label for="phone">Phone</label>
 
                         <input type="tel"
                                id="phone"
-                               name="phone"
-                               placeholder="Enter your phone number"
-                               autocomplete="tel">
+                               placeholder="Enter your phone number">
 
                     </div>
 
 
                     <div class="form-group">
 
-                        <label for="program">
-                            Choose Program
-                        </label>
+                        <label for="program">Choose Program</label>
 
-                        <select id="program"
-                                name="program"
-                                required>
+                        <select id="program" required>
 
-                            <option value="">
-                                Select a program
-                            </option>
-
-                            <option value="mindfulness">
-                                Mindfulness Meditation
-                            </option>
-
-                            <option value="breathing">
-                                Breathing Meditation
-                            </option>
-
-                            <option value="morning">
-                                Morning Meditation
-                            </option>
-
-                            <option value="stress">
-                                Stress Relief Meditation
-                            </option>
-
-                            <option value="healing">
-                                Healing Session
-                            </option>
-
-                            <option value="wellness">
-                                Personal Wellness
-                            </option>
+                            <option value="">Select a program</option>
+                            <option>Mindfulness Meditation</option>
+                            <option>Breathing Meditation</option>
+                            <option>Morning Meditation</option>
+                            <option>Stress Relief Meditation</option>
+                            <option>Healing Session</option>
+                            <option>Personal Wellness</option>
 
                         </select>
 
@@ -1272,12 +1793,9 @@
 
                     <div class="form-group full">
 
-                        <label for="message">
-                            Message
-                        </label>
+                        <label for="message">Message</label>
 
                         <textarea id="message"
-                                  name="message"
                                   rows="5"
                                   placeholder="Write your message"></textarea>
 
@@ -1286,8 +1804,7 @@
 
                     <div class="form-submit">
 
-                        <button type="submit"
-                                class="btn">
+                        <button type="submit" class="btn">
                             BOOK NOW
                         </button>
 
@@ -1300,28 +1817,20 @@
         </section>
 
 
-        <!-- ================================
-             FAQ
-        ================================= -->
+        <!-- FAQ -->
 
-        <section class="faq"
-                 aria-labelledby="faq-title">
+        <section class="faq">
 
             <div class="section-title">
 
-                <small>
-                    COMMON QUESTIONS
-                </small>
+                <small>COMMON QUESTIONS</small>
 
-                <h2 id="faq-title">
-                    Frequently Asked Questions
-                </h2>
+                <h2>Frequently Asked Questions</h2>
 
             </div>
 
 
             <div class="faq-list">
-
 
                 <details>
 
@@ -1330,9 +1839,8 @@
                     </summary>
 
                     <p>
-                        Wear comfortable clothing and bring a
-                        water bottle if you wish. A calm and open
-                        mindset is enough to begin.
+                        Wear comfortable clothing and bring a water
+                        bottle if you wish.
                     </p>
 
                 </details>
@@ -1341,13 +1849,12 @@
                 <details>
 
                     <summary>
-                        Can beginners join the meditation programs?
+                        Can beginners join?
                     </summary>
 
                     <p>
-                        Yes. The programs can be approached gradually,
-                        making them suitable for people who are new
-                        to meditation as well as regular practitioners.
+                        Yes. Beginners can start with simple breathing
+                        and mindfulness practices.
                     </p>
 
                 </details>
@@ -1360,50 +1867,27 @@
                     </summary>
 
                     <p>
-                        Session duration can vary depending on the
-                        selected program and schedule.
+                        Session duration can vary depending on
+                        the selected program.
                     </p>
 
                 </details>
-
-
-                <details>
-
-                    <summary>
-                        Do I need previous meditation experience?
-                    </summary>
-
-                    <p>
-                        No previous experience is required. Beginners
-                        can start with simple breathing and mindfulness
-                        practices.
-                    </p>
-
-                </details>
-
 
             </div>
 
         </section>
 
 
-        <!-- ================================
-             CONTACT
-        ================================= -->
+        <!-- CONTACT -->
 
-        <section id="contact"
-                 class="contact"
-                 aria-labelledby="contact-title">
+        <section id="contact" class="contact">
 
             <div class="contact-box">
 
-                <small>
-                    GET IN TOUCH
-                </small>
+                <small>GET IN TOUCH</small>
 
-                <h2 id="contact-title">
-                    Begin Your
-                    <br>
+                <h2>
+                    Begin Your<br>
                     Peaceful Journey
                 </h2>
 
@@ -1427,6 +1911,8 @@
 
                     Phone:
 
+                    <br>
+
                     <a href="tel:+917548808177">
                         +91 7548808177
                     </a>
@@ -1441,14 +1927,10 @@
 
                     Email:
 
-                    <a href="mailto:sivacsc1990@gmail.com">
-                        sivacsc1990@gmail.com
-                    </a>
-
                     <br>
 
-                    <a href="mailto:snanthan199021@gmail.com">
-                        snanthan199021@gmail.com
+                    <a href="mailto:sivacsc1990@gmail.com">
+                        sivacsc1990@gmail.com
                     </a>
 
                 </address>
@@ -1470,26 +1952,18 @@
     </main>
 
 
-    <!-- ================================
-         FOOTER
-    ================================= -->
+    <!-- FOOTER -->
 
     <footer>
 
-        <h3>
-            Hasta Jothi
-        </h3>
+        <h3>Hasta Jothi</h3>
+
+        <p>Meditation & Healing Centre</p>
+
+        <p>Peace • Balance • Awareness</p>
 
         <p>
-            Meditation & Healing Centre
-        </p>
-
-        <p>
-            Peace • Balance • Awareness
-        </p>
-
-        <p>
-            &copy; 2026 Hasta Jothi Meditation Centre.
+            © 2026 Hasta Jothi Meditation Centre.
             All Rights Reserved.
         </p>
 
@@ -1500,59 +1974,44 @@
     </footer>
 
 
-    <!-- ================================
-         PROGRAM MODAL
-    ================================= -->
+    <!-- PROGRAM MODAL -->
 
     <div class="program-modal"
-         id="programModal"
-         aria-hidden="true">
+         id="programModal">
 
-        <div class="program-modal-content"
-             role="dialog"
-             aria-modal="true"
-             aria-labelledby="modalTitle">
+        <div class="program-modal-content">
 
-            <button type="button"
-                    class="modal-close"
-                    id="modalClose"
-                    aria-label="Close program details">
+            <button class="modal-close"
+                    id="modalClose">
 
-                &times;
+                ×
 
             </button>
-
 
             <span class="modal-number"
                   id="modalNumber">
                 01
             </span>
 
-
             <h2 id="modalTitle">
                 Program Title
             </h2>
-
 
             <p id="modalDescription">
                 Program description
             </p>
 
-
             <div class="modal-info">
 
                 <p>
                     <strong>Duration:</strong>
-
                     <span id="modalDuration">
                         45 Minutes
                     </span>
                 </p>
 
-
                 <p>
                     <strong>Level:</strong>
-
                     <span id="modalLevel">
                         Beginner
                     </span>
@@ -1560,10 +2019,12 @@
 
             </div>
 
-
             <a href="#booking"
-               class="btn modal-book">
+               class="btn"
+               id="modalBook">
+
                 Book This Program
+
             </a>
 
         </div>
@@ -1571,13 +2032,586 @@
     </div>
 
 
-    <!-- ================================
-         JAVASCRIPT
-         Keep ONLY external JS
-    ================================= -->
+    <!-- BACK TO TOP BUTTON -->
 
-    <script src="script.js"></script>
+    <button class="back-to-top"
+            id="backToTop"
+            aria-label="Back to top">
+
+        ↑
+
+    </button>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        "use strict";
+
+
+        /* ========================================
+           SELECT ELEMENTS
+        ======================================== */
+
+        const body = document.body;
+
+        const themeToggle =
+            document.querySelector(".theme-toggle");
+
+        const menuToggle =
+            document.querySelector(".menu-toggle");
+
+        const navLinks =
+            document.querySelector(".nav-links");
+
+        const programSearch =
+            document.getElementById("programSearch");
+
+        const programCategory =
+            document.getElementById("programCategory");
+
+        const cards =
+            document.querySelectorAll(".card");
+
+        const programResult =
+            document.getElementById("programResult");
+
+        const modal =
+            document.getElementById("programModal");
+
+        const modalClose =
+            document.getElementById("modalClose");
+
+        const bookingForm =
+            document.getElementById("bookingForm");
+
+        const backToTop =
+            document.getElementById("backToTop");
+
+
+        /* ========================================
+           DARK / LIGHT MODE
+        ======================================== */
+
+        function setTheme(theme) {
+
+            if (theme === "dark") {
+
+                body.classList.add("dark-mode");
+
+                themeToggle.textContent = "☀️";
+
+                themeToggle.setAttribute(
+                    "aria-label",
+                    "Switch to light mode"
+                );
+
+            } else {
+
+                body.classList.remove("dark-mode");
+
+                themeToggle.textContent = "🌙";
+
+                themeToggle.setAttribute(
+                    "aria-label",
+                    "Switch to dark mode"
+                );
+
+            }
+
+        }
+
+
+        const savedTheme =
+            localStorage.getItem("hastaJothiTheme");
+
+
+        if (savedTheme === "dark") {
+
+            setTheme("dark");
+
+        } else {
+
+            setTheme("light");
+
+        }
+
+
+        themeToggle.addEventListener(
+            "click",
+            function () {
+
+                const isDark =
+                    body.classList.contains("dark-mode");
+
+                if (isDark) {
+
+                    setTheme("light");
+
+                    localStorage.setItem(
+                        "hastaJothiTheme",
+                        "light"
+                    );
+
+                } else {
+
+                    setTheme("dark");
+
+                    localStorage.setItem(
+                        "hastaJothiTheme",
+                        "dark"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* ========================================
+           MOBILE MENU
+        ======================================== */
+
+        menuToggle.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.toggle("active");
+
+                const expanded =
+                    navLinks.classList.contains("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    expanded
+                );
+
+                menuToggle.textContent =
+                    expanded ? "✕" : "☰";
+
+            }
+        );
+
+
+        document.querySelectorAll(
+            ".nav-links a"
+        ).forEach(function (link) {
+
+            link.addEventListener(
+                "click",
+                function () {
+
+                    navLinks.classList.remove("active");
+
+                    menuToggle.textContent = "☰";
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+            );
+
+        });
+
+
+        /* ========================================
+           PROGRAM SEARCH / FILTER
+        ======================================== */
+
+        function filterPrograms() {
+
+            const searchValue =
+                programSearch.value
+                    .toLowerCase()
+                    .trim();
+
+            const categoryValue =
+                programCategory.value;
+
+            let visibleCount = 0;
+
+
+            cards.forEach(function (card) {
+
+                const title =
+                    card.querySelector("h3")
+                        .textContent
+                        .toLowerCase();
+
+                const description =
+                    card.querySelector("p")
+                        .textContent
+                        .toLowerCase();
+
+                const category =
+                    card.dataset.category;
+
+
+                const searchMatch =
+                    title.includes(searchValue) ||
+                    description.includes(searchValue);
+
+
+                const categoryMatch =
+                    categoryValue === "all" ||
+                    category === categoryValue;
+
+
+                if (
+                    searchMatch &&
+                    categoryMatch
+                ) {
+
+                    card.style.display = "";
+
+                    visibleCount++;
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+
+            if (
+                searchValue !== "" ||
+                categoryValue !== "all"
+            ) {
+
+                programResult.textContent =
+                    visibleCount +
+                    " program(s) found";
+
+            } else {
+
+                programResult.textContent = "";
+
+            }
+
+        }
+
+
+        programSearch.addEventListener(
+            "input",
+            filterPrograms
+        );
+
+
+        programCategory.addEventListener(
+            "change",
+            filterPrograms
+        );
+
+
+        /* ========================================
+           PROGRAM MODAL DATA
+        ======================================== */
+
+        const programDetails = {
+
+            mindfulness: {
+                number: "01",
+                title: "Mindfulness Meditation",
+                description:
+                    "A simple practice that helps you focus on the present moment with awareness and calmness.",
+                duration: "45 Minutes",
+                level: "Beginner"
+            },
+
+            breathing: {
+                number: "02",
+                title: "Breathing Meditation",
+                description:
+                    "A guided breathing practice designed to encourage relaxation and calm awareness.",
+                duration: "30 Minutes",
+                level: "Beginner"
+            },
+
+            morning: {
+                number: "03",
+                title: "Morning Meditation",
+                description:
+                    "Begin your day with a calm and positive mindset through mindful breathing and awareness.",
+                duration: "30 Minutes",
+                level: "All Levels"
+            },
+
+            stress: {
+                number: "04",
+                title: "Stress Relief Meditation",
+                description:
+                    "A calming guided practice focused on relaxation and creating a peaceful break.",
+                duration: "45 Minutes",
+                level: "All Levels"
+            },
+
+            healing: {
+                number: "05",
+                title: "Healing Sessions",
+                description:
+                    "A peaceful wellness session focused on relaxation, reflection and personal balance.",
+                duration: "60 Minutes",
+                level: "All Levels"
+            },
+
+            wellness: {
+                number: "06",
+                title: "Personal Wellness",
+                description:
+                    "A personal wellness practice supporting mindful living and daily balance.",
+                duration: "60 Minutes",
+                level: "All Levels"
+            }
+
+        };
+
+
+        /* ========================================
+           OPEN PROGRAM MODAL
+        ======================================== */
+
+        document.querySelectorAll(
+            ".learn-more"
+        ).forEach(function (button) {
+
+            button.addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                    const program =
+                        this.dataset.program;
+
+                    const data =
+                        programDetails[program];
+
+
+                    document.getElementById(
+                        "modalNumber"
+                    ).textContent =
+                        data.number;
+
+
+                    document.getElementById(
+                        "modalTitle"
+                    ).textContent =
+                        data.title;
+
+
+                    document.getElementById(
+                        "modalDescription"
+                    ).textContent =
+                        data.description;
+
+
+                    document.getElementById(
+                        "modalDuration"
+                    ).textContent =
+                        data.duration;
+
+
+                    document.getElementById(
+                        "modalLevel"
+                    ).textContent =
+                        data.level;
+
+
+                    modal.classList.add("active");
+
+                    document.body.style.overflow =
+                        "hidden";
+
+                }
+            );
+
+        });
+
+
+        /* ========================================
+           CLOSE MODAL
+        ======================================== */
+
+        function closeModal() {
+
+            modal.classList.remove("active");
+
+            document.body.style.overflow = "";
+
+        }
+
+
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
+
+
+        modal.addEventListener(
+            "click",
+            function (event) {
+
+                if (event.target === modal) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* ========================================
+           MODAL BOOK BUTTON
+        ======================================== */
+
+        document.getElementById(
+            "modalBook"
+        ).addEventListener(
+            "click",
+            function () {
+
+                closeModal();
+
+            }
+        );
+
+
+        /* ========================================
+           BOOKING FORM
+        ======================================== */
+
+        bookingForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById("name")
+                        .value
+                        .trim();
+
+                const email =
+                    document.getElementById("email")
+                        .value
+                        .trim();
+
+                const program =
+                    document.getElementById("program")
+                        .value;
+
+
+                if (
+                    name.length < 2
+                ) {
+
+                    alert(
+                        "Please enter your full name."
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    email === "" ||
+                    !email.includes("@")
+                ) {
+
+                    alert(
+                        "Please enter a valid email address."
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    program === ""
+                ) {
+
+                    alert(
+                        "Please select a program."
+                    );
+
+                    return;
+
+                }
+
+
+                alert(
+                    "Thank you, " +
+                    name +
+                    "! Your booking request has been received successfully."
+                );
+
+
+                bookingForm.reset();
+
+            }
+        );
+
+
+        /* ========================================
+           BACK TO TOP
+        ======================================== */
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+                if (
+                    window.scrollY > 500
+                ) {
+
+                    backToTop.classList.add("show");
+
+                } else {
+
+                    backToTop.classList.remove("show");
+
+                }
+
+            }
+        );
+
+
+        backToTop.addEventListener(
+            "click",
+            function () {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+    </script>
 
 </body>
-
 </html>

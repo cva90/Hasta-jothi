@@ -1,36 +1,90 @@
 "use strict";
 
+/* =========================================================
+   HASTA JOTHI MEDITATION & HEALING CENTRE
+   FINAL COMPLETE JAVASCRIPT
+   ========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* ================================
-       ELEMENTS
-    ================================= */
+    console.log("Hasta Jothi website loaded successfully!");
+
+    /* =====================================================
+       01. ELEMENT SELECTORS
+    ===================================================== */
+
+    const body = document.body;
+    const header = document.querySelector("header");
 
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
-    const header = document.querySelector("header");
+
     const themeToggle = document.querySelector(".theme-toggle");
-    const bookingForm = document.querySelector("#bookingForm");
+
+    const bookingForm = document.querySelector(".booking-form");
+
+    const backToTop = document.querySelector(".back-to-top");
+
+    const programSearch =
+        document.querySelector("#programSearch");
+
+    const programCategory =
+        document.querySelector("#programCategory");
+
+    const programCards =
+        document.querySelectorAll(".card[data-category]");
+
+    const programResult =
+        document.querySelector("#programResult");
+
+    const modal =
+        document.querySelector(".program-modal");
+
+    const modalClose =
+        document.querySelector(".modal-close");
+
+    const modalTitle =
+        document.querySelector(".modal-title");
+
+    const modalDescription =
+        document.querySelector(".modal-description");
+
+    const modalNumber =
+        document.querySelector(".modal-number");
+
+    const modalDuration =
+        document.querySelector(".modal-duration");
+
+    const modalLevel =
+        document.querySelector(".modal-level");
+
+    const modalBook =
+        document.querySelector(".modal-book");
 
 
-    /* ================================
-       MOBILE MENU
-    ================================= */
+    /* =====================================================
+       02. MOBILE MENU
+    ===================================================== */
 
     if (menuToggle && navLinks) {
 
         menuToggle.addEventListener("click", () => {
 
-            const isOpen = navLinks.classList.toggle("active");
+            const isOpen =
+                navLinks.classList.toggle("active");
 
             menuToggle.setAttribute(
                 "aria-expanded",
-                String(isOpen)
+                isOpen ? "true" : "false"
             );
 
         });
 
-        navLinks.querySelectorAll("a").forEach(link => {
+
+        const mobileLinks =
+            navLinks.querySelectorAll("a");
+
+        mobileLinks.forEach(link => {
 
             link.addEventListener("click", () => {
 
@@ -48,56 +102,92 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ================================
-       SMOOTH SCROLL
-    ================================= */
+    /* =====================================================
+       03. DARK / LIGHT MODE
+    ===================================================== */
 
-    document
-        .querySelectorAll('a[href^="#"]')
-        .forEach(link => {
-
-            link.addEventListener("click", event => {
-
-                const targetId = link.getAttribute("href");
-
-                if (!targetId || targetId === "#") {
-                    return;
-                }
-
-                const target = document.querySelector(targetId);
-
-                if (!target) {
-                    return;
-                }
-
-                event.preventDefault();
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-            });
-
-        });
+    const savedTheme =
+        localStorage.getItem("hastaJothiTheme");
 
 
-    /* ================================
-       HEADER SCROLL
-    ================================= */
+    if (savedTheme === "dark") {
 
-    function updateHeader() {
+        body.classList.add("dark-mode");
 
-        if (!header) {
-            return;
-        }
+    }
 
-        header.classList.toggle(
-            "scrolled",
-            window.scrollY > 80
+
+    function updateThemeButton() {
+
+        if (!themeToggle) return;
+
+        const isDark =
+            body.classList.contains("dark-mode");
+
+        themeToggle.textContent =
+            isDark ? "☀️" : "🌙";
+
+        themeToggle.setAttribute(
+            "aria-pressed",
+            isDark ? "true" : "false"
+        );
+
+        themeToggle.setAttribute(
+            "aria-label",
+            isDark
+                ? "Switch to light mode"
+                : "Switch to dark mode"
         );
 
     }
+
+
+    updateThemeButton();
+
+
+    if (themeToggle) {
+
+        themeToggle.addEventListener("click", () => {
+
+            body.classList.toggle("dark-mode");
+
+            const isDark =
+                body.classList.contains("dark-mode");
+
+            localStorage.setItem(
+                "hastaJothiTheme",
+                isDark ? "dark" : "light"
+            );
+
+            updateThemeButton();
+
+        });
+
+    }
+
+
+    /* =====================================================
+       04. HEADER SCROLL EFFECT
+    ===================================================== */
+
+    function updateHeader() {
+
+        if (!header) return;
+
+        if (window.scrollY > 50) {
+
+            header.classList.add("scrolled");
+
+        } else {
+
+            header.classList.remove("scrolled");
+
+        }
+
+    }
+
+
+    updateHeader();
 
     window.addEventListener(
         "scroll",
@@ -105,118 +195,151 @@ document.addEventListener("DOMContentLoaded", () => {
         { passive: true }
     );
 
-    updateHeader();
+
+    /* =====================================================
+       05. SMOOTH SCROLL
+    ===================================================== */
+
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(link => {
+
+            link.addEventListener("click", event => {
+
+                const targetId =
+                    link.getAttribute("href");
+
+                if (
+                    !targetId ||
+                    targetId === "#"
+                ) {
+                    return;
+                }
 
 
-    /* ================================
-       DARK MODE
-    ================================= */
+                const target =
+                    document.querySelector(targetId);
 
-    if (themeToggle) {
+                if (target) {
 
-        const savedTheme =
-            localStorage.getItem("hastaJothiTheme");
+                    event.preventDefault();
 
-        if (savedTheme === "dark") {
+                    target.scrollIntoView({
 
-            document.body.classList.add("dark-mode");
+                        behavior: "smooth",
 
-            themeToggle.textContent = "☀️";
+                        block: "start"
 
-        } else {
+                    });
 
-            document.body.classList.remove("dark-mode");
+                }
 
-            themeToggle.textContent = "🌙";
-
-        }
-
-
-        themeToggle.addEventListener("click", () => {
-
-            const isDark =
-                document.body.classList.toggle("dark-mode");
-
-            localStorage.setItem(
-                "hastaJothiTheme",
-                isDark ? "dark" : "light"
-            );
-
-            themeToggle.textContent =
-                isDark ? "☀️" : "🌙";
+            });
 
         });
 
-    }
 
-
-    /* ================================
-       PROGRAM SEARCH / FILTER
-    ================================= */
-
-    const programSearch =
-        document.querySelector("#programSearch");
-
-    const programCategory =
-        document.querySelector("#programCategory");
-
-    const programCards =
-        document.querySelectorAll(
-            "#programs .card, .program-card"
-        );
-
-    const programResult =
-        document.querySelector("#programResult");
-
+    /* =====================================================
+       06. PROGRAM SEARCH & FILTER
+    ===================================================== */
 
     function filterPrograms() {
 
+        if (!programCards.length) return;
+
         const searchText =
             programSearch
-                ? programSearch.value.toLowerCase().trim()
+                ? programSearch.value
+                    .toLowerCase()
+                    .trim()
                 : "";
 
-        const category =
+        const selectedCategory =
             programCategory
-                ? programCategory.value.toLowerCase()
+                ? programCategory.value
+                    .toLowerCase()
+                    .trim()
                 : "all";
 
-        let count = 0;
+
+        let visibleCount = 0;
+
 
         programCards.forEach(card => {
 
-            const text =
-                card.textContent.toLowerCase();
+            const title =
+                card.querySelector("h3")
+                    ?.textContent
+                    .toLowerCase() || "";
 
-            const cardCategory =
-                (card.dataset.category || "")
-                    .toLowerCase();
+            const description =
+                card.querySelector("p")
+                    ?.textContent
+                    .toLowerCase() || "";
+
+            const category =
+                card.dataset.category
+                    ?.toLowerCase() || "";
+
 
             const matchesSearch =
-                text.includes(searchText);
+
+                title.includes(searchText) ||
+
+                description.includes(searchText);
+
 
             const matchesCategory =
-                category === "all" ||
-                cardCategory === category;
 
-            const show =
-                matchesSearch && matchesCategory;
+                selectedCategory === "all" ||
 
-            card.style.display =
-                show ? "" : "none";
+                category === selectedCategory;
 
-            if (show) {
-                count++;
+
+            if (
+                matchesSearch &&
+                matchesCategory
+            ) {
+
+                card.classList.remove(
+                    "filter-hidden"
+                );
+
+                visibleCount++;
+
+            } else {
+
+                card.classList.add(
+                    "filter-hidden"
+                );
+
             }
 
         });
 
+
         if (programResult) {
 
-            programResult.textContent =
-                count === 0
-                    ? "No programs found."
-                    : `${count} program(s) found.`;
+            if (visibleCount === 0) {
+
+                programResult.textContent =
+                    "No programs found.";
+
+            }
+
+            else if (visibleCount === 1) {
+
+                programResult.textContent =
+                    "1 program found.";
+
+            }
+
+            else {
+
+                programResult.textContent =
+                    `${visibleCount} programs found.`;
+
+            }
 
         }
 
@@ -232,6 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
     if (programCategory) {
 
         programCategory.addEventListener(
@@ -242,9 +366,623 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ================================
-       BOOKING FORM
-    ================================= */
+    if (
+        programCards.length &&
+        (programSearch || programCategory)
+    ) {
+
+        filterPrograms();
+
+    }
+
+
+    /* =====================================================
+       07. PROGRAM MODAL
+    ===================================================== */
+
+    const programDetails = {
+
+        "mindfulness": {
+
+            title:
+                "Mindfulness Meditation",
+
+            description:
+                "A peaceful guided meditation practice designed to help you stay present, improve awareness and develop a calm and balanced mind.",
+
+            duration:
+                "60 Minutes",
+
+            level:
+                "Beginner Friendly"
+
+        },
+
+
+        "breathing": {
+
+            title:
+                "Breathing Meditation",
+
+            description:
+                "A guided breathing practice that helps calm the nervous system, improve focus and create a deeper sense of relaxation.",
+
+            duration:
+                "45 Minutes",
+
+            level:
+                "All Levels"
+
+        },
+
+
+        "morning": {
+
+            title:
+                "Morning Meditation",
+
+            description:
+                "Begin your day with positive energy, calm awareness and a peaceful mindset through a simple guided morning meditation.",
+
+            duration:
+                "45 Minutes",
+
+            level:
+                "All Levels"
+
+        },
+
+
+        "stress": {
+
+            title:
+                "Stress Relief Meditation",
+
+            description:
+                "A calming meditation practice focused on relaxation, emotional balance and releasing everyday stress and tension.",
+
+            duration:
+                "60 Minutes",
+
+            level:
+                "Beginner Friendly"
+
+        },
+
+
+        "healing": {
+
+            title:
+                "Healing Session",
+
+            description:
+                "A peaceful wellness session focused on relaxation, inner balance and personal healing through mindful practice.",
+
+            duration:
+                "60 Minutes",
+
+            level:
+                "Personal Session"
+
+        },
+
+
+        "wellness": {
+
+            title:
+                "Personal Wellness",
+
+            description:
+                "A personalised wellness practice designed to support your individual goals, balance and overall wellbeing.",
+
+            duration:
+                "Custom Session",
+
+            level:
+                "Personalised"
+
+        }
+
+    };
+
+
+    const programButtons =
+        document.querySelectorAll(
+            "[data-program]"
+        );
+
+
+    function openProgramModal(
+        programKey
+    ) {
+
+        if (
+            !modal ||
+            !programDetails[programKey]
+        ) {
+            return;
+        }
+
+
+        const program =
+            programDetails[programKey];
+
+
+        if (modalTitle) {
+
+            modalTitle.textContent =
+                program.title;
+
+        }
+
+
+        if (modalDescription) {
+
+            modalDescription.textContent =
+                program.description;
+
+        }
+
+
+        if (modalDuration) {
+
+            modalDuration.textContent =
+                `Duration: ${program.duration}`;
+
+        }
+
+
+        if (modalLevel) {
+
+            modalLevel.textContent =
+                `Level: ${program.level}`;
+
+        }
+
+
+        if (modalBook) {
+
+            modalBook.href =
+                "#booking";
+
+        }
+
+
+        modal.classList.add("active");
+
+        body.style.overflow =
+            "hidden";
+
+    }
+
+
+    function closeProgramModal() {
+
+        if (!modal) return;
+
+        modal.classList.remove("active");
+
+        body.style.overflow = "";
+
+    }
+
+
+    programButtons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+
+                const programKey =
+                    button.dataset.program;
+
+                openProgramModal(
+                    programKey
+                );
+
+            }
+        );
+
+    });
+
+
+    if (modalClose) {
+
+        modalClose.addEventListener(
+            "click",
+            closeProgramModal
+        );
+
+    }
+
+
+    if (modal) {
+
+        modal.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target === modal
+                ) {
+
+                    closeProgramModal();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape" &&
+                modal &&
+                modal.classList.contains(
+                    "active"
+                )
+            ) {
+
+                closeProgramModal();
+
+            }
+
+        }
+    );
+
+
+    if (modalBook) {
+
+        modalBook.addEventListener(
+            "click",
+            () => {
+
+                closeProgramModal();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       08. FAQ
+    ===================================================== */
+
+    const faqItems =
+        document.querySelectorAll(
+            ".faq details"
+        );
+
+
+    faqItems.forEach(item => {
+
+        item.addEventListener(
+            "toggle",
+            () => {
+
+                if (!item.open) return;
+
+                faqItems.forEach(other => {
+
+                    if (
+                        other !== item
+                    ) {
+
+                        other.open = false;
+
+                    }
+
+                });
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       09. SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+
+    if (
+        "IntersectionObserver" in window
+    ) {
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            entry.target
+                                .classList
+                                .add("visible");
+
+                            revealObserver
+                                .unobserve(
+                                    entry.target
+                                );
+
+                        }
+
+                    });
+
+                },
+
+                {
+
+                    threshold: 0.12,
+
+                    rootMargin:
+                        "0px 0px -50px 0px"
+
+                }
+
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(
+                element
+            );
+
+        });
+
+    }
+
+    else {
+
+        revealElements.forEach(element => {
+
+            element.classList.add(
+                "visible"
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       10. BACK TO TOP
+    ===================================================== */
+
+    function updateBackToTop() {
+
+        if (!backToTop) return;
+
+        if (window.scrollY > 500) {
+
+            backToTop.classList.add(
+                "show"
+            );
+
+        }
+
+        else {
+
+            backToTop.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+
+
+    updateBackToTop();
+
+
+    window.addEventListener(
+        "scroll",
+        updateBackToTop,
+        { passive: true }
+    );
+
+
+    if (backToTop) {
+
+        backToTop.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       11. GALLERY LIGHTBOX
+    ===================================================== */
+
+    const galleryImages =
+        document.querySelectorAll(
+            ".gallery-grid img"
+        );
+
+
+    let lightbox =
+        document.querySelector(".lightbox");
+
+
+    if (
+        galleryImages.length &&
+        !lightbox
+    ) {
+
+        lightbox =
+            document.createElement("div");
+
+        lightbox.className =
+            "lightbox";
+
+        lightbox.innerHTML = `
+
+            <button
+                class="lightbox-close"
+                type="button"
+                aria-label="Close image">
+
+                ×
+
+            </button>
+
+            <img
+                class="lightbox-image"
+                src=""
+                alt="Gallery image">
+
+        `;
+
+
+        document.body.appendChild(
+            lightbox
+        );
+
+    }
+
+
+    if (lightbox) {
+
+        const lightboxImage =
+            lightbox.querySelector(
+                ".lightbox-image"
+            );
+
+        const lightboxClose =
+            lightbox.querySelector(
+                ".lightbox-close"
+            );
+
+
+        galleryImages.forEach(image => {
+
+            image.style.cursor =
+                "pointer";
+
+
+            image.addEventListener(
+                "click",
+                () => {
+
+                    if (!lightboxImage) return;
+
+                    lightboxImage.src =
+                        image.src;
+
+                    lightboxImage.alt =
+                        image.alt ||
+                        "Gallery image";
+
+
+                    lightbox.classList.add(
+                        "active"
+                    );
+
+                    body.style.overflow =
+                        "hidden";
+
+                }
+            );
+
+        });
+
+
+        if (lightboxClose) {
+
+            lightboxClose.addEventListener(
+                "click",
+                () => {
+
+                    lightbox.classList.remove(
+                        "active"
+                    );
+
+                    body.style.overflow = "";
+
+                }
+            );
+
+        }
+
+
+        lightbox.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target === lightbox
+                ) {
+
+                    lightbox.classList.remove(
+                        "active"
+                    );
+
+                    body.style.overflow = "";
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape" &&
+                    lightbox.classList.contains(
+                        "active"
+                    )
+                ) {
+
+                    lightbox.classList.remove(
+                        "active"
+                    );
+
+                    body.style.overflow = "";
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       12. BOOKING FORM
+    ===================================================== */
 
     if (bookingForm) {
 
@@ -256,19 +994,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 const name =
-                    document.querySelector("#name");
+                    bookingForm.querySelector(
+                        "#name"
+                    );
 
                 const email =
-                    document.querySelector("#email");
+                    bookingForm.querySelector(
+                        "#email"
+                    );
 
                 const phone =
-                    document.querySelector("#phone");
+                    bookingForm.querySelector(
+                        "#phone"
+                    );
 
                 const program =
-                    document.querySelector("#program");
+                    bookingForm.querySelector(
+                        "#program"
+                    );
 
                 const message =
-                    document.querySelector("#message");
+                    bookingForm.querySelector(
+                        "#message"
+                    );
+
 
                 const submitButton =
                     bookingForm.querySelector(
@@ -276,41 +1025,68 @@ document.addEventListener("DOMContentLoaded", () => {
                     );
 
 
+                const errors = [];
+
+
                 if (
                     !name ||
                     name.value.trim().length < 2
                 ) {
 
-                    alert(
-                        "Please enter your full name."
+                    errors.push(
+                        "Please enter your name."
                     );
-
-                    return;
 
                 }
 
 
                 if (
                     !email ||
-                    !email.value.includes("@")
+                    !email.value
+                        .trim()
+                        .match(
+                            /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                        )
                 ) {
 
-                    alert(
+                    errors.push(
                         "Please enter a valid email."
                     );
 
-                    return;
+                }
+
+
+                if (
+                    !phone ||
+                    phone.value
+                        .replace(/\D/g, "")
+                        .length < 10
+                ) {
+
+                    errors.push(
+                        "Please enter a valid phone number."
+                    );
 
                 }
 
 
                 if (
                     !program ||
-                    !program.value
+                    !program.value ||
+                    program.value === "Select Program"
                 ) {
 
-                    alert(
+                    errors.push(
                         "Please select a program."
+                    );
+
+                }
+
+
+                if (errors.length > 0) {
+
+                    alert(
+                        errors.join("\n")
                     );
 
                     return;
@@ -327,9 +1103,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         email.value.trim(),
 
                     phone:
-                        phone
-                            ? phone.value.trim()
-                            : "",
+                        phone.value.trim(),
 
                     program:
                         program.value,
@@ -342,77 +1116,119 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
 
 
+                const originalButtonText =
+                    submitButton
+                        ? submitButton.textContent
+                        : "";
+
+
                 try {
 
                     if (submitButton) {
 
-                        submitButton.disabled = true;
+                        submitButton.disabled =
+                            true;
 
                         submitButton.textContent =
-                            "BOOKING...";
+                            "Submitting...";
 
                     }
 
 
                     const response =
                         await fetch(
-                            "https://hasta-jothi.onrender.com/api/bookings",
+
+                            "http://localhost:3000/api/bookings",
+
                             {
+
                                 method: "POST",
 
                                 headers: {
+
                                     "Content-Type":
                                         "application/json"
+
                                 },
 
                                 body:
                                     JSON.stringify(
                                         bookingData
                                     )
+
                             }
+
                         );
 
 
-                    const result =
-                        await response.json();
+                    let result = null;
 
 
-                    if (
-                        response.ok &&
-                        result.success
-                    ) {
+                    try {
 
-                        alert(
-                            "Booking saved successfully! 🍃"
-                        );
+                        result =
+                            await response.json();
 
-                        bookingForm.reset();
+                    }
 
-                    } else {
+                    catch (jsonError) {
 
-                        alert(
-                            result.message ||
-                            "Booking failed."
+                        result = null;
+
+                    }
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+
+                            result?.message ||
+
+                            "Booking could not be submitted."
+
                         );
 
                     }
 
-                } catch (error) {
-
-                    console.error(error);
 
                     alert(
-                        "Unable to connect to booking server."
+
+                        result?.message ||
+
+                        "Booking submitted successfully! We will contact you soon."
+
                     );
 
-                } finally {
+
+                    bookingForm.reset();
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Booking error:",
+                        error
+                    );
+
+
+                    alert(
+
+                        "Booking could not be submitted. Please make sure the backend server is running."
+
+                    );
+
+                }
+
+                finally {
 
                     if (submitButton) {
 
-                        submitButton.disabled = false;
+                        submitButton.disabled =
+                            false;
 
                         submitButton.textContent =
-                            "BOOK NOW";
+                            originalButtonText;
 
                     }
 
@@ -424,45 +1240,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ================================
-       BACK TO TOP
-    ================================= */
-
-    const backToTop =
-        document.querySelector(".back-to-top");
-
-    if (backToTop) {
-
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                backToTop.classList.toggle(
-                    "show",
-                    window.scrollY > 500
-                );
-
-            },
-            { passive: true }
-        );
-
-        backToTop.addEventListener(
-            "click",
-            () => {
-
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-
-            }
-        );
-
-    }
-
+    /* =====================================================
+       13. INITIAL PAGE SETUP
+    ===================================================== */
 
     console.log(
-        "Hasta Jothi JavaScript working successfully!"
+        "All Hasta Jothi features initialized successfully!"
     );
 
 });

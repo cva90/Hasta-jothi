@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Hasta Jothi website loaded successfully!");
 
-    /* ====================================================
+    /* =====================================================
        01. ELEMENT SELECTORS
     ===================================================== */
 
@@ -984,261 +984,122 @@ document.addEventListener("DOMContentLoaded", () => {
        12. BOOKING FORM
     ===================================================== */
 
-    if (bookingForm) {
+    /* =====================================================
+   12. BOOKING FORM + MONGODB
+===================================================== */
 
-        bookingForm.addEventListener(
-            "submit",
-            async event => {
+if (bookingForm) {
 
-                event.preventDefault();
+    bookingForm.addEventListener("submit", async (event) => {
 
+        event.preventDefault();
 
-                const name =
-                    bookingForm.querySelector(
-                        "#name"
-                    );
+        console.log("📤 Booking form submitted");
 
-                const email =
-                    bookingForm.querySelector(
-                        "#email"
-                    );
+        const bookingData = {
+            name: document.querySelector("#name").value.trim(),
+            email: document.querySelector("#email").value.trim(),
+            phone: document.querySelector("#phone").value.trim(),
+            program: document.querySelector("#program").value,
+            message: document.querySelector("#message").value.trim()
+        };
 
-                const phone =
-                    bookingForm.querySelector(
-                        "#phone"
-                    );
+        console.log("📦 Sending booking data:", bookingData);
 
-                const program =
-                    bookingForm.querySelector(
-                        "#program"
-                    );
+        if (
+            !bookingData.name ||
+            !bookingData.email ||
+            !bookingData.phone ||
+            !bookingData.program
+        ) {
 
-                const message =
-                    bookingForm.querySelector(
-                        "#message"
-                    );
+            alert("Please fill all required fields.");
 
+            return;
+        }
 
-                const submitButton =
-                    bookingForm.querySelector(
-                        'button[type="submit"]'
-                    );
+        const submitButton =
+            bookingForm.querySelector(
+                'button[type="submit"]'
+            );
 
+        const originalText =
+            submitButton.textContent;
 
-                const errors = [];
+        try {
 
+            submitButton.disabled = true;
 
-                if (
-                    !name ||
-                    name.value.trim().length < 2
-                ) {
+            submitButton.textContent =
+                "Submitting...";
 
-                    errors.push(
-                        "Please enter your name."
-                    );
+            const response = await fetch(
+                "http://localhost:3000/api/bookings",
+                {
+                    method: "POST",
 
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify(bookingData)
                 }
-
-
-                if (
-                    !email ||
-                    !email.value
-                        .trim()
-                        .match(
-                            /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-                        )
-                ) {
-
-                    errors.push(
-                        "Please enter a valid email."
-                    );
-
-                }
-
-
-                if (
-                    !phone ||
-                    phone.value
-                        .replace(/\D/g, "")
-                        .length < 10
-                ) {
-
-                    errors.push(
-                        "Please enter a valid phone number."
-                    );
-
-                }
-
-
-                if (
-                    !program ||
-                    !program.value ||
-                    program.value === "Select Program"
-                ) {
-
-                    errors.push(
-                        "Please select a program."
-                    );
-
-                }
-
-
-                if (errors.length > 0) {
-
-                    alert(
-                        errors.join("\n")
-                    );
-
-                    return;
-
-                }
-
-
-                const bookingData = {
-
-                    name:
-                        name.value.trim(),
-
-                    email:
-                        email.value.trim(),
-
-                    phone:
-                        phone.value.trim(),
-
-                    program:
-                        program.value,
-
-                    message:
-                        message
-                            ? message.value.trim()
-                            : ""
-
-                };
-
-
-                const originalButtonText =
-                    submitButton
-                        ? submitButton.textContent
-                        : "";
-
-
-                try {
-
-                    if (submitButton) {
-
-                        submitButton.disabled =
-                            true;
-
-                        submitButton.textContent =
-                            "Submitting...";
-
-                    }
-
-
-                    const response =
-                        await fetch(
-
-                            "http://localhost:3000/api/bookings",
-
-                            {
-
-                                method: "POST",
-
-                                headers: {
-
-                                    "Content-Type":
-                                        "application/json"
-
-                                },
-
-                                body:
-                                    JSON.stringify(
-                                        bookingData
-                                    )
-
-                            }
-
-                        );
-
-
-                    let result = null;
-
-
-                    try {
-
-                        result =
-                            await response.json();
-
-                    }
-
-                    catch (jsonError) {
-
-                        result = null;
-
-                    }
-
-
-                    if (!response.ok) {
-
-                        throw new Error(
-
-                            result?.message ||
-
-                            "Booking could not be submitted."
-
-                        );
-
-                    }
-
-
-                    alert(
-
-                        result?.message ||
-
-                        "Booking submitted successfully! We will contact you soon."
-
-                    );
-
-
-                    bookingForm.reset();
-
-                }
-
-                catch (error) {
-
-                    console.error(
-                        "Booking error:",
-                        error
-                    );
-
-
-                    alert(
-
-                        "Booking could not be submitted. Please make sure the backend server is running."
-
-                    );
-
-                }
-
-                finally {
-
-                    if (submitButton) {
-
-                        submitButton.disabled =
-                            false;
-
-                        submitButton.textContent =
-                            originalButtonText;
-
-                    }
-
-                }
+            );
+
+            console.log(
+                "📡 Response status:",
+                response.status
+            );
+
+            const result =
+                await response.json();
+
+            console.log(
+                "📥 Server response:",
+                result
+            );
+
+            if (!response.ok) {
+
+                throw new Error(
+                    result.message ||
+                    "Booking failed."
+                );
 
             }
-        );
 
-    }
+            alert(
+                "Thank you, " +
+                bookingData.name +
+                "! Your booking has been received successfully."
+            );
 
+            bookingForm.reset();
+
+        } catch (error) {
+
+            console.error(
+                "❌ Booking error:",
+                error
+            );
+
+            alert(
+                "Booking failed: " +
+                error.message
+            );
+
+        } finally {
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                originalText;
+
+        }
+
+    });
+
+}
 
     /* =====================================================
        13. INITIAL PAGE SETUP

@@ -3,7 +3,7 @@
 /* =========================================================
    HASTA JOTHI MEDITATION & HEALING CENTRE
    FINAL COMPLETE JAVASCRIPT
-   ========================================================= */
+   ======================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 

@@ -987,93 +987,186 @@ document.addEventListener("DOMContentLoaded", () => {
    
 
 /* =====================================================
-BOOKING FORM + MONGODB
+/* =====================================================
+   BOOKING FORM + MONGODB
 ===================================================== */
 
 const bookingForm = document.getElementById("bookingForm");
 
 if (bookingForm) {
 
-```
-bookingForm.addEventListener("submit", async function (event) {
+    bookingForm.addEventListener("submit", async function (event) {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const program = document.getElementById("program").value;
-    const message = document.getElementById("message").value.trim();
+        const name =
+            document.getElementById("name").value.trim();
 
-    if (!name || !email || !phone || !program) {
-        alert("Please fill Name, Email, Phone and Program.");
-        return;
-    }
+        const email =
+            document.getElementById("email").value.trim();
 
-    const submitButton = bookingForm.querySelector(
-        'button[type="submit"]'
-    );
+        const phone =
+            document.getElementById("phone").value.trim();
 
-    const originalText = submitButton.innerText;
+        const program =
+            document.getElementById("program").value;
 
-    submitButton.disabled = true;
-    submitButton.innerText = "Submitting...";
+        const message =
+            document.getElementById("message").value.trim();
 
-    try {
 
-        const response = await fetch("/api/bookings", {
-            method: "POST",
+        /* VALIDATION */
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+        if (!name || !email || !phone || !program) {
 
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                phone: phone,
-                program: program,
-                message: message
-            })
-        });
-
-        const result = await response.json();
-
-        console.log("Booking response:", result);
-
-        if (!response.ok) {
-            throw new Error(
-                result.message || "Booking failed"
+            alert(
+                "Please fill Name, Email, Phone and Program."
             );
+
+            return;
         }
 
-        alert(
-            "Thank you, " +
-            name +
-            "! Your booking has been saved successfully."
-        );
 
-        bookingForm.reset();
+        /* SUBMIT BUTTON */
 
-    } catch (error) {
+        const submitButton =
+            bookingForm.querySelector(
+                'button[type="submit"]'
+            );
 
-        console.error("Booking error:", error);
+        const originalText =
+            submitButton.innerText;
 
-        alert(
-            "Booking failed: " + error.message
-        );
+        submitButton.disabled = true;
 
-    } finally {
+        submitButton.innerText =
+            "Submitting...";
 
-        submitButton.disabled = false;
-        submitButton.innerText = originalText;
 
-    }
+        try {
 
-});
-```
+            /* SEND BOOKING TO RENDER BACKEND */
+
+            const response = await fetch(
+                "https://hasta-jothi.onrender.com/api/bookings",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        name: name,
+
+                        email: email,
+
+                        phone: phone,
+
+                        program: program,
+
+                        message: message
+
+                    })
+                }
+            );
+
+
+            /* READ RESPONSE AS TEXT FIRST */
+
+            const responseText =
+                await response.text();
+
+
+            console.log(
+                "Booking HTTP Status:",
+                response.status
+            );
+
+            console.log(
+                "Booking Server Response:",
+                responseText
+            );
+
+
+            /* TRY TO CONVERT RESPONSE TO JSON */
+
+            let result;
+
+            try {
+
+                result =
+                    JSON.parse(responseText);
+
+            } catch (jsonError) {
+
+                throw new Error(
+                    "Server returned an invalid response. Please try again."
+                );
+
+            }
+
+
+            console.log(
+                "Booking response:",
+                result
+            );
+
+
+            /* CHECK HTTP ERROR */
+
+            if (!response.ok) {
+
+                throw new Error(
+                    result.message ||
+                    "Booking failed"
+                );
+
+            }
+
+
+            /* SUCCESS */
+
+            alert(
+                "Thank you, " +
+                name +
+                "! Your booking has been saved successfully."
+            );
+
+
+            /* CLEAR FORM */
+
+            bookingForm.reset();
+
+
+        } catch (error) {
+
+            console.error(
+                "Booking error:",
+                error
+            );
+
+
+            alert(
+                "Booking failed: " +
+                error.message
+            );
+
+
+        } finally {
+
+            submitButton.disabled = false;
+
+            submitButton.innerText =
+                originalText;
+
+        }
+
+    });
 
 }
+```
 
 
     /* =====================================================

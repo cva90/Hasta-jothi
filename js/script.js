@@ -983,15 +983,9 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        12. BOOKING FORM
     ===================================================== */
-
-   
-
 /* =====================================================
-/* =====================================================
-   BOOKING FORM + MONGODB
+   12. BOOKING FORM + MONGODB
 ===================================================== */
-
-const bookingForm = document.getElementById("bookingForm");
 
 if (bookingForm) {
 
@@ -1009,7 +1003,7 @@ if (bookingForm) {
             document.getElementById("phone").value.trim();
 
         const program =
-            document.getElementById("program").value;
+            document.getElementById("program").value.trim();
 
         const message =
             document.getElementById("message").value.trim();
@@ -1035,17 +1029,22 @@ if (bookingForm) {
             );
 
         const originalText =
-            submitButton.innerText;
+            submitButton
+                ? submitButton.innerText
+                : "Book Session";
 
-        submitButton.disabled = true;
 
-        submitButton.innerText =
-            "Submitting...";
+        if (submitButton) {
+
+            submitButton.disabled = true;
+            submitButton.innerText = "Submitting...";
+
+        }
 
 
         try {
 
-            /* SEND BOOKING TO RENDER BACKEND */
+            /* SEND BOOKING TO RENDER */
 
             const response = await fetch(
                 "https://hasta-jothi.onrender.com/api/bookings",
@@ -1059,13 +1058,9 @@ if (bookingForm) {
                     body: JSON.stringify({
 
                         name: name,
-
                         email: email,
-
                         phone: phone,
-
                         program: program,
-
                         message: message
 
                     })
@@ -1073,7 +1068,7 @@ if (bookingForm) {
             );
 
 
-            /* READ RESPONSE AS TEXT FIRST */
+            /* READ RESPONSE ONLY ONCE */
 
             const responseText =
                 await response.text();
@@ -1090,7 +1085,7 @@ if (bookingForm) {
             );
 
 
-            /* TRY TO CONVERT RESPONSE TO JSON */
+            /* CONVERT RESPONSE TO JSON */
 
             let result;
 
@@ -1101,32 +1096,37 @@ if (bookingForm) {
 
             } catch (jsonError) {
 
+                console.error(
+                    "Invalid JSON response:",
+                    responseText
+                );
+
                 throw new Error(
-                    "Server returned an invalid response. Please try again."
+                    "Server returned an invalid response."
                 );
 
             }
 
 
-            console.log(
-                "Booking response:",
-                result
-            );
+            /* CHECK SERVER RESPONSE */
 
-
-            /* CHECK HTTP ERROR */
-
-            if (!response.ok) {
+            if (!response.ok || !result.success) {
 
                 throw new Error(
                     result.message ||
-                    "Booking failed"
+                    "Booking failed."
                 );
 
             }
 
 
             /* SUCCESS */
+
+            console.log(
+                "Booking saved successfully:",
+                result
+            );
+
 
             alert(
                 "Thank you, " +
@@ -1156,17 +1156,25 @@ if (bookingForm) {
 
         } finally {
 
-            submitButton.disabled = false;
+            if (submitButton) {
 
-            submitButton.innerText =
-                originalText;
+                submitButton.disabled = false;
+
+                submitButton.innerText =
+                    originalText;
+
+            }
 
         }
 
     });
 
 }
-```
+   
+
+
+
+          
 
 
     /* =====================================================

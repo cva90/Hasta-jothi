@@ -1,0 +1,2272 @@
+/* =========================================================
+   HASTA JOTHI MEDITATION & HEALING CENTRE
+   FINAL COMPLETE STYLE.CSS
+   LIGHT MODE + DARK MODE + RESPONSIVE + ANIMATIONS
+   ========================================================= */
+
+
+/* =========================================================
+   01. ROOT VARIABLES
+   ========================================================= */
+
+:root {
+    --deep-green: #0b2a20;
+    --forest-green: #173f32;
+    --sage-green: #3f6b55;
+    --soft-green: #a8c7b5;
+
+    --gold: #c9a96e;
+    --light-gold: #e7c98f;
+
+    --cream: #faf7ef;
+    --warm-white: #fffdf8;
+    --white: #ffffff;
+
+    --dark-text: #183128;
+    --body-text: #526057;
+    --muted-text: #7a857e;
+
+    --border: rgba(11, 42, 32, 0.12);
+
+    --shadow-sm: 0 5px 20px rgba(11, 42, 32, 0.08);
+    --shadow-md: 0 15px 40px rgba(11, 42, 32, 0.12);
+    --shadow-lg: 0 25px 70px rgba(11, 42, 32, 0.18);
+
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 30px;
+
+    --transition: all 0.35s ease;
+}
+
+
+/* =========================================================
+   02. RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family:
+        "Maiandra GD",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: var(--warm-white);
+    color: var(--body-text);
+
+    line-height: 1.7;
+
+    overflow-x: hidden;
+
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background: var(--light-gold);
+    color: var(--deep-green);
+}
+
+
+/* =========================================================
+   03. ACCESSIBILITY
+   ========================================================= */
+
+.skip-link {
+    position: fixed;
+
+    top: -100px;
+    left: 20px;
+
+    z-index: 9999;
+
+    padding: 12px 20px;
+
+    background: var(--light-gold);
+    color: var(--deep-green);
+
+    border-radius: 8px;
+
+    font-weight: 800;
+
+    transition: var(--transition);
+}
+
+.skip-link:focus {
+    top: 20px;
+}
+
+
+/* =========================================================
+   04. COMMON SECTION
+   ========================================================= */
+
+section {
+    position: relative;
+    padding: 100px 6%;
+}
+
+.section-title {
+    max-width: 760px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.section-title small,
+.about-content small,
+.contact-box small {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: var(--gold);
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+}
+
+.section-title h2,
+.about-content h2,
+.contact-box h2 {
+    color: var(--deep-green);
+
+    font-size: clamp(32px, 4vw, 52px);
+
+    line-height: 1.15;
+
+    font-weight: 900;
+}
+
+.section-title p {
+    max-width: 650px;
+
+    margin: 20px auto 0;
+
+    color: var(--body-text);
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   05. HEADER / NAVIGATION
+   ========================================================= */
+
+header {
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+}
+
+.navbar {
+    width: 100%;
+
+    min-height: 82px;
+
+    padding: 12px 5%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    background: rgba(255, 253, 248, 0.96);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid rgba(11, 42, 32, 0.08);
+
+    box-shadow: 0 8px 30px rgba(11, 42, 32, 0.06);
+
+    transition: var(--transition);
+}
+
+header.scrolled .navbar {
+    min-height: 70px;
+
+    box-shadow: 0 10px 35px rgba(11, 42, 32, 0.14);
+}
+
+
+/* =========================================================
+   06. LOGO
+   ========================================================= */
+
+.logo {
+    display: flex;
+
+    flex-direction: column;
+
+    flex-shrink: 0;
+}
+
+.logo h2 {
+    color: var(--deep-green);
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+}
+
+.logo span {
+    margin-top: 5px;
+
+    color: var(--sage-green);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   07. NAV LINKS
+   ========================================================= */
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 4px;
+}
+
+.nav-links a {
+    position: relative;
+
+    padding: 10px 12px;
+
+    color: var(--deep-green);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+
+    border-radius: 20px;
+
+    transition: var(--transition);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 4px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gold);
+
+    transform: translateX(-50%);
+
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--forest-green);
+
+    background: rgba(231, 201, 143, 0.25);
+}
+
+.nav-links a:hover::after {
+    width: 25px;
+}
+
+
+/* =========================================================
+   08. MOBILE MENU
+   ========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--deep-green);
+
+    font-size: 28px;
+}
+
+
+/* =========================================================
+   09. THEME TOGGLE
+   ========================================================= */
+
+.theme-toggle {
+    border: none;
+
+    padding: 8px;
+
+    background: transparent;
+
+    color: var(--deep-green);
+
+    font-size: 1.3rem;
+
+    border-radius: 50%;
+
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background: rgba(201, 169, 110, 0.18);
+
+    transform: rotate(20deg);
+}
+
+
+/* =========================================================
+   10. HERO
+   IMPORTANT:
+   style.css and image folder are in same main folder
+   ========================================================= */
+
+.hero {
+    min-height: calc(100vh - 82px);
+
+    display: flex;
+    align-items: center;
+
+    padding: 100px 7%;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.88),
+            rgba(255, 255, 255, 0.68),
+            rgba(255, 255, 255, 0.25)
+        ),
+        url("image/meditation.jpg")
+        center / cover no-repeat;
+}
+
+.hero-content {
+    max-width: 700px;
+
+    animation: heroReveal 1s ease both;
+}
+
+.hero-content small {
+    color: #000000;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+}
+
+.hero-content h1 {
+    margin: 20px 0;
+
+    color: #000000;
+
+    font-size: clamp(50px, 7vw, 90px);
+
+    line-height: 0.98;
+
+    font-weight: 900;
+
+    text-shadow:
+        1px 1px 3px
+        rgba(255, 255, 255, 0.7);
+}
+
+.hero-content p {
+    max-width: 650px;
+
+    color: #000000;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    line-height: 1.8;
+
+    text-shadow:
+        1px 1px 2px
+        rgba(255, 255, 255, 0.8);
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 35px;
+}
+
+
+/* =========================================================
+   11. BUTTONS
+   ========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 50px;
+
+    padding: 13px 25px;
+
+    border: 1px solid var(--gold);
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--light-gold)
+        );
+
+    color: var(--deep-green);
+
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(201, 169, 110, 0.25);
+
+    transition: var(--transition);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(201, 169, 110, 0.35);
+}
+
+.btn-outline {
+    background: transparent;
+
+    color: white;
+
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-outline:hover {
+    background: white;
+
+    color: var(--deep-green);
+}
+
+
+/* =========================================================
+   12. INTRO
+   ========================================================= */
+
+.intro {
+    background: var(--cream);
+}
+
+.intro::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 35px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: var(--gold);
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   13. ABOUT
+   ========================================================= */
+
+.about {
+    max-width: 1400px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 1fr)
+        minmax(300px, 1fr);
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -18px;
+
+    border: 1px solid var(--gold);
+
+    border-radius: var(--radius-lg);
+
+    z-index: -1;
+}
+
+.about-image img {
+    height: 580px;
+
+    object-fit: cover;
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.about-content p {
+    margin: 20px 0;
+
+    color: var(--body-text);
+}
+
+.about-content .btn {
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   14. PROGRAMS
+   ========================================================= */
+
+.programs {
+    background: var(--cream);
+}
+
+.program-filter {
+    width: min(900px, 90%);
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+}
+
+.search-box,
+.category-box {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.search-box label,
+.category-box label {
+    color: var(--deep-green);
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+.search-box input,
+.category-box select {
+    width: 100%;
+
+    height: 50px;
+
+    padding: 12px 16px;
+
+    border: 1px solid rgba(11, 42, 32, 0.15);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: white;
+
+    color: var(--deep-green);
+}
+
+.search-box input:focus,
+.category-box select:focus {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(201, 169, 110, 0.20);
+}
+
+.program-result {
+    min-height: 25px;
+
+    margin: 15px 0 30px;
+
+    text-align: center;
+
+    color: var(--sage-green);
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   15. PROGRAM CARDS
+   ========================================================= */
+
+.cards {
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 28px;
+}
+
+.card {
+    overflow: hidden;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-12px);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.card.filter-hidden {
+    display: none;
+}
+
+.card-image {
+    position: relative;
+
+    overflow: hidden;
+
+    height: 260px;
+}
+
+.card-image img {
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.08);
+}
+
+.card-number {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.90);
+
+    color: var(--deep-green);
+
+    font-weight: 900;
+}
+
+.card-content {
+    padding: 28px;
+}
+
+.card-content h3 {
+    margin-bottom: 12px;
+
+    color: var(--deep-green);
+
+    font-size: 23px;
+
+    font-weight: 900;
+}
+
+.card-content p {
+    margin-bottom: 20px;
+
+    color: var(--body-text);
+}
+
+.card-content a {
+    color: var(--sage-green);
+
+    font-weight: 900;
+}
+
+.card-content a:hover {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   16. SPECIAL PROGRAM CARD
+   ========================================================= */
+
+.special-card {
+    min-height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--deep-green),
+            var(--forest-green)
+        );
+}
+
+.special-card .card-content {
+    padding: 40px;
+}
+
+.special-card .card-content > img {
+    width: 100%;
+
+    height: 260px;
+
+    margin-bottom: 25px;
+
+    object-fit: cover;
+
+    border-radius: 14px;
+}
+
+.special-card .card-number {
+    position: static;
+
+    margin-bottom: 25px;
+
+    background: var(--gold);
+}
+
+.special-card h3 {
+    color: white;
+}
+
+.special-card p {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.special-card a {
+    color: var(--light-gold);
+}
+
+
+/* =========================================================
+   17. BENEFITS
+   ========================================================= */
+
+.benefit-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.benefit {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+
+    transition: var(--transition);
+}
+
+.benefit:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--light-gold);
+
+    box-shadow: var(--shadow-md);
+}
+
+.benefit > span {
+    display: block;
+
+    margin-bottom: 15px;
+
+    font-size: 38px;
+}
+
+.benefit h3 {
+    margin-bottom: 10px;
+
+    color: var(--deep-green);
+
+    font-size: 20px;
+
+    font-weight: 900;
+}
+
+.benefit p {
+    color: var(--body-text);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   18. HEALING BENEFITS
+   ========================================================= */
+
+.healing-benefits {
+    background: var(--deep-green);
+}
+
+.healing-benefits .section-title h2 {
+    color: white;
+}
+
+.healing-benefits .section-title p {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.healing-list {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.healing-list > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 22px;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    transition: var(--transition);
+}
+
+.healing-list > div:hover {
+    transform: translateX(7px);
+
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.healing-list span {
+    flex-shrink: 0;
+
+    color: var(--light-gold);
+
+    font-size: 18px;
+
+    font-weight: 900;
+}
+
+.healing-list p {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+
+/* =========================================================
+   19. SCHEDULE
+   ========================================================= */
+
+.schedule {
+    background: var(--cream);
+}
+
+.table-container {
+    max-width: 1000px;
+
+    margin: auto;
+
+    overflow-x: auto;
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-md);
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+}
+
+caption {
+    padding: 18px;
+
+    color: var(--deep-green);
+
+    background: white;
+
+    font-weight: 800;
+}
+
+th {
+    padding: 20px;
+
+    background: var(--deep-green);
+
+    color: white;
+
+    text-align: left;
+
+    font-weight: 900;
+}
+
+td {
+    padding: 20px;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--body-text);
+}
+
+tbody tr {
+    transition: var(--transition);
+}
+
+tbody tr:hover {
+    background: #f8f3e8;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/* =========================================================
+   20. GALLERY
+   ========================================================= */
+
+.gallery-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.gallery-grid figure {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 350px;
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-md);
+}
+
+.gallery-grid img {
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+}
+
+.gallery-grid figure:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-grid figcaption {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 45px 20px 20px;
+
+    color: white;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.75)
+        );
+}
+
+
+/* =========================================================
+   21. TESTIMONIALS
+   ========================================================= */
+
+.testimonials {
+    background: var(--cream);
+}
+
+.testimonial-grid {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.testimonial {
+    padding: 35px;
+
+    background: white;
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-sm);
+
+    transition: var(--transition);
+}
+
+.testimonial:hover {
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-md);
+}
+
+.stars {
+    margin-bottom: 20px;
+
+    color: var(--gold);
+
+    letter-spacing: 4px;
+}
+
+.testimonial blockquote {
+    margin-bottom: 25px;
+
+    color: var(--dark-text);
+
+    font-size: 17px;
+
+    font-style: italic;
+
+    line-height: 1.8;
+}
+
+.testimonial cite {
+    color: var(--sage-green);
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    font-style: normal;
+}
+
+
+/* =========================================================
+   22. BOOKING
+   ========================================================= */
+
+.booking {
+    background:
+        linear-gradient(
+            135deg,
+            var(--deep-green),
+            var(--forest-green)
+        );
+}
+
+.booking .section-title h2 {
+    color: white;
+}
+
+.booking .section-title p {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.booking-form {
+    max-width: 950px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: var(--radius-lg);
+
+    backdrop-filter: blur(15px);
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: white;
+
+    font-weight: 800;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    color: var(--dark-text);
+
+    transition: var(--transition);
+}
+
+.form-group textarea {
+    resize: vertical;
+
+    min-height: 130px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--gold);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(201, 169, 110, 0.18);
+}
+
+.form-submit {
+    grid-column: 1 / -1;
+}
+
+.form-submit .btn {
+    border: none;
+}
+
+
+/* =========================================================
+   23. FAQ
+   ========================================================= */
+
+.faq {
+    background: var(--cream);
+}
+
+.faq-list {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.faq details {
+    margin-bottom: 15px;
+
+    padding: 20px 25px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.faq details:hover {
+    border-color: var(--light-gold);
+}
+
+.faq summary {
+    cursor: pointer;
+
+    color: var(--deep-green);
+
+    font-size: 17px;
+
+    font-weight: 900;
+}
+
+.faq summary::marker {
+    color: var(--gold);
+}
+
+.faq details p {
+    margin-top: 15px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--body-text);
+}
+
+
+/* =========================================================
+   24. CONTACT
+   ========================================================= */
+
+.contact {
+    min-height: 650px;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        linear-gradient(
+            rgba(11, 42, 32, 0.88),
+            rgba(11, 42, 32, 0.88)
+        ),
+        url("image/meditation.jpg")
+        center / cover no-repeat;
+}
+
+.contact-box {
+    max-width: 800px;
+
+    padding: 60px;
+
+    text-align: center;
+
+    color: white;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: var(--radius-lg);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-box h2 {
+    color: white;
+}
+
+.contact-box p {
+    max-width: 600px;
+
+    margin: 20px auto;
+
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-box address {
+    margin-top: 30px;
+
+    color: rgba(255, 255, 255, 0.9);
+
+    font-style: normal;
+
+    line-height: 2;
+}
+
+.contact-box a:not(.btn) {
+    color: var(--light-gold);
+
+    font-weight: 700;
+}
+
+.contact-actions {
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   25. FOOTER
+   ========================================================= */
+
+footer {
+    padding: 60px 20px;
+
+    text-align: center;
+
+    background: #061b15;
+
+    color: rgba(255, 255, 255, 0.7);
+}
+
+footer h3 {
+    margin-bottom: 8px;
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: 900;
+}
+
+footer p {
+    margin: 8px 0;
+}
+
+footer a {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    color: var(--light-gold);
+
+    font-weight: 800;
+}
+
+footer a:hover {
+    color: white;
+}
+
+
+/* =========================================================
+   26. PROGRAM MODAL
+   ========================================================= */
+
+.program-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: 0.3s ease;
+}
+
+.program-modal.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+.program-modal-content {
+    position: relative;
+
+    width: min(600px, 95%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    background: var(--deep-green);
+
+    color: white;
+
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+
+    transform: translateY(30px) scale(0.95);
+
+    transition: transform 0.3s ease;
+}
+
+.program-modal.active .program-modal-content {
+    transform: translateY(0) scale(1);
+}
+
+.modal-close {
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    font-size: 28px;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.modal-number {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.7;
+}
+
+.program-modal-content h2 {
+    margin-bottom: 15px;
+
+    color: white;
+}
+
+.program-modal-content p {
+    line-height: 1.8;
+}
+
+.modal-info {
+    margin: 25px 0;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.modal-info p {
+    margin: 8px 0;
+}
+
+
+/* =========================================================
+   27. SCROLL REVEAL
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   28. BACK TO TOP
+   ========================================================= */
+
+.back-to-top {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 50px;
+    height: 50px;
+
+    z-index: 900;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 1px solid var(--gold);
+
+    border-radius: 50%;
+
+    background: var(--deep-green);
+
+    color: var(--light-gold);
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition: var(--transition);
+
+    box-shadow: var(--shadow-md);
+}
+
+.back-to-top.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--gold);
+
+    color: var(--deep-green);
+
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   29. GALLERY LIGHTBOX
+   ========================================================= */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition: 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+.lightbox-image {
+    width: auto;
+
+    max-width: 90%;
+
+    max-height: 85vh;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0, 0, 0, 0.5);
+
+    transform: scale(0.9);
+
+    transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox-image {
+    transform: scale(1);
+}
+
+.lightbox-close {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    color: white;
+
+    font-size: 32px;
+
+    transition: var(--transition);
+}
+
+.lightbox-close:hover {
+    background: var(--gold);
+
+    color: var(--deep-green);
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   30. ANIMATIONS
+   ========================================================= */
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   31. DARK MODE - FINAL CLEAN VERSION
+   ========================================================= */
+
+body.dark-mode {
+    background: #0b1f18;
+
+    color: #f5f5f5;
+}
+
+
+/* NAVBAR */
+
+body.dark-mode .navbar {
+    background: rgba(11, 31, 24, 0.97);
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .logo h2 {
+    color: white;
+}
+
+body.dark-mode .logo span {
+    color: #b8c9c1;
+}
+
+body.dark-mode .nav-links a {
+    color: #f5f5f5;
+}
+
+body.dark-mode .menu-toggle {
+    color: white;
+}
+
+body.dark-mode .theme-toggle {
+    color: var(--light-gold);
+}
+
+
+/* NORMAL SECTIONS */
+
+body.dark-mode .intro,
+body.dark-mode .programs,
+body.dark-mode .schedule,
+body.dark-mode .testimonials,
+body.dark-mode .faq {
+    background: #0b1f18;
+}
+
+
+/* ABOUT SECTION */
+
+body.dark-mode .about {
+    color: #f5f5f5;
+}
+
+
+/* HEADINGS */
+
+body.dark-mode .section-title h2,
+body.dark-mode .about-content h2 {
+    color: white;
+}
+
+
+/* NORMAL TEXT */
+
+body.dark-mode .section-title p,
+body.dark-mode .about-content p {
+    color: #cbd8d2;
+}
+
+
+/* PROGRAM FILTER */
+
+body.dark-mode .program-filter {
+    background: #16352a;
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .search-box label,
+body.dark-mode .category-box label {
+    color: white;
+}
+
+body.dark-mode .search-box input,
+body.dark-mode .category-box select {
+    background: #10291f;
+
+    color: white;
+
+    border-color: #45665a;
+}
+
+body.dark-mode .search-box input::placeholder {
+    color: #aebdb6;
+}
+
+body.dark-mode .program-result {
+    color: var(--light-gold);
+}
+
+
+/* CARDS */
+
+body.dark-mode .card,
+body.dark-mode .benefit,
+body.dark-mode .testimonial,
+body.dark-mode .faq details {
+    background: #16352a;
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* CARD TEXT */
+
+body.dark-mode .card-content h3,
+body.dark-mode .benefit h3,
+body.dark-mode .faq summary {
+    color: white;
+}
+
+body.dark-mode .card-content p,
+body.dark-mode .benefit p,
+body.dark-mode .testimonial blockquote,
+body.dark-mode .faq details p {
+    color: #cbd8d2;
+}
+
+body.dark-mode .testimonial cite {
+    color: var(--light-gold);
+}
+
+
+/* TABLE */
+
+body.dark-mode table,
+body.dark-mode caption {
+    background: #16352a;
+
+    color: white;
+}
+
+body.dark-mode td {
+    color: #d6e1db;
+
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode tbody tr:hover {
+    background: #204236;
+}
+
+
+/* FORM INPUTS */
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea {
+    background: #10291f;
+
+    color: white;
+
+    border-color: #45665a;
+}
+
+body.dark-mode
+.form-group input::placeholder,
+body.dark-mode
+.form-group textarea::placeholder {
+    color: #aebdb6;
+}
+
+
+/* BACK TO TOP */
+
+body.dark-mode .back-to-top {
+    background: var(--light-gold);
+
+    color: var(--deep-green);
+}
+
+body.dark-mode .back-to-top:hover {
+    background: white;
+}
+
+
+/* FOOTER */
+
+body.dark-mode footer {
+    background: #06130d;
+}
+
+
+/* =========================================================
+   32. RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .nav-links {
+        gap: 0;
+    }
+
+    .nav-links a {
+        padding: 9px 8px;
+
+        font-size: 12px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   33. RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    section {
+        padding: 75px 5%;
+    }
+
+    .navbar {
+        min-height: 72px;
+
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 12px;
+
+        background: var(--deep-green);
+
+        border-radius: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        color: white;
+
+        text-align: center;
+
+        padding: 12px;
+    }
+
+    .nav-links a:hover {
+        color: var(--deep-green);
+
+        background: var(--light-gold);
+    }
+
+    body.dark-mode .nav-links {
+        background: #16352a;
+    }
+
+    body.dark-mode .nav-links a {
+        color: white;
+    }
+
+    .logo h2 {
+        font-size: 24px;
+    }
+
+    .hero {
+        min-height: 80vh;
+
+        padding: 80px 7%;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(45px, 14vw, 70px);
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .about-image img {
+        height: 450px;
+    }
+
+    .program-filter {
+        width: 92%;
+
+        grid-template-columns: 1fr;
+
+        padding: 18px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .healing-list {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-form {
+        grid-template-columns: 1fr;
+
+        padding: 25px;
+    }
+
+    .form-group.full,
+    .form-submit {
+        grid-column: auto;
+    }
+
+    .contact-box {
+        padding: 40px 25px;
+    }
+
+    .program-modal-content {
+        width: 95%;
+
+        padding: 30px 20px;
+    }
+}
+
+
+/* =========================================================
+   34. RESPONSIVE - SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .lightbox {
+        padding: 15px;
+    }
+
+    .lightbox-image {
+        max-width: 95%;
+
+        max-height: 80vh;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+
+        width: 44px;
+        height: 44px;
+
+        font-size: 26px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .section-title {
+        margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+        font-size: 34px;
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        min-height: calc(100vh - 72px);
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .card-image {
+        height: 230px;
+    }
+
+    .about-image img {
+        height: 350px;
+    }
+
+    .booking-form {
+        padding: 20px;
+    }
+
+    .contact-box {
+        padding: 30px 20px;
+    }
+}
+
+
+/* =========================================================
+   35. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal,
+    .reveal.visible,
+    .lightbox-image {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+}

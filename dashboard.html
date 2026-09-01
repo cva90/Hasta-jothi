@@ -1,0 +1,448 @@
+dashboard.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Hasta Jothi</title>
+
+    <link rel="stylesheet"
+          href="css/admin.css">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+    <!-- MOBILE HEADER -->
+
+    <header class="mobile-header">
+
+        <h2>Hasta Jothi</h2>
+
+        <button
+            id="menuToggle"
+            class="dashboard-menu-toggle"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="admin-sidebar"
+           id="adminSidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-icon">
+                🧘
+            </div>
+
+            <h2>Hasta Jothi</h2>
+
+            <p>Admin Panel</p>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html"
+               class="active">
+                📊 Dashboard
+            </a>
+
+            <a href="#bookings">
+                📅 Bookings
+            </a>
+
+            <a href="index.html">
+                🌐 View Website
+            </a>
+
+        </nav>
+
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+        >
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+
+        <!-- TOP BAR -->
+
+        <div class="dashboard-topbar">
+
+            <div>
+
+                <h1>Dashboard</h1>
+
+                <p>
+                    Welcome back, Admin 👋
+                </p>
+
+            </div>
+
+
+            <div class="admin-date"
+                 id="currentDate">
+            </div>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📋
+                </div>
+
+                <div>
+
+                    <p>Total Bookings</p>
+
+                    <h2 id="totalBookings">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🆕
+                </div>
+
+                <div>
+
+                    <p>Pending</p>
+
+                    <h2 id="pendingBookings">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <p>Today's Bookings</p>
+
+                    <h2 id="todayBookings">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🧘
+                </div>
+
+                <div>
+
+                    <p>Total Programs</p>
+
+                    <h2 id="totalPrograms">
+                        6
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+        <!-- ANALYTICS -->
+
+<section class="analytics-section">
+
+    <div class="section-header">
+
+        <div>
+            <h2>Booking Analytics</h2>
+            <p>Program-wise booking overview</p>
+        </div>
+
+    </div>
+
+    <div class="analytics-grid">
+
+        <div class="analytics-card">
+            <h3>Mindfulness Meditation</h3>
+            <strong id="mindfulnessCount">0</strong>
+            <span>Bookings</span>
+        </div>
+
+        <div class="analytics-card">
+            <h3>Breathing Meditation</h3>
+            <strong id="breathingCount">0</strong>
+            <span>Bookings</span>
+        </div>
+
+        <div class="analytics-card">
+            <h3>Morning Meditation</h3>
+            <strong id="morningCount">0</strong>
+            <span>Bookings</span>
+        </div>
+
+        <div class="analytics-card">
+            <h3>Stress Relief Meditation</h3>
+            <strong id="stressCount">0</strong>
+            <span>Bookings</span>
+        </div>
+
+        <div class="analytics-card">
+            <h3>Healing Sessions</h3>
+            <strong id="healingCount">0</strong>
+            <span>Bookings</span>
+        </div>
+
+        <div class="analytics-card">
+            <h3>Personal Wellness</h3>
+            <strong id="wellnessCount">0</strong>
+            <span>Bookings</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- BOOKINGS -->
+
+        <section
+            class="bookings-section"
+            id="bookings"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Recent Bookings</h2>
+
+                    <p>
+                        Latest booking requests
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="refreshBookings"
+                    class="refresh-button"
+                >
+                    ↻ Refresh
+                </button>
+
+            </div>
+            <!-- PAGINATION -->
+
+<div
+    class="pagination"
+    id="pagination"
+>
+</div>
+
+            <!-- BOOKING CONTROLS -->
+
+<!-- BOOKING CONTROLS -->
+
+<div class="booking-controls">
+
+    <!-- SEARCH -->
+
+    <input
+        type="search"
+        id="bookingSearch"
+        placeholder="Search bookings..."
+    >
+
+
+    <!-- PROGRAM FILTER -->
+
+    <select id="programFilter">
+
+        <option value="all">
+            All Programs
+        </option>
+
+        <option value="Mindfulness Meditation">
+            Mindfulness Meditation
+        </option>
+
+        <option value="Breathing Meditation">
+            Breathing Meditation
+        </option>
+
+        <option value="Morning Meditation">
+            Morning Meditation
+        </option>
+
+        <option value="Stress Relief Meditation">
+            Stress Relief Meditation
+        </option>
+
+        <option value="Healing Sessions">
+            Healing Sessions
+        </option>
+
+        <option value="Personal Wellness">
+            Personal Wellness
+        </option>
+
+    </select>
+
+
+    <!-- STATUS FILTER -->
+
+    <select id="statusFilter">
+
+        <option value="all">
+            All Status
+        </option>
+
+        <option value="Pending">
+            Pending
+        </option>
+
+        <option value="Confirmed">
+            Confirmed
+        </option>
+
+        <option value="Completed">
+            Completed
+        </option>
+
+        <option value="Cancelled">
+            Cancelled
+        </option>
+
+    </select>
+
+
+    <!-- APPLY FILTER BUTTON -->
+
+    <button
+        type="button"
+        id="applyFilters"
+        class="apply-filter-button"
+    >
+        ✓ Apply
+    </button>
+
+</div>
+
+
+            <!-- LOADING -->
+
+            <div
+                id="bookingLoading"
+                class="booking-loading"
+            >
+                Loading bookings...
+            </div>
+
+
+            <!-- ERROR -->
+
+            <div
+                id="bookingError"
+                class="booking-error"
+            >
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div class="table-wrapper">
+
+                <table class="bookings-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Name</th>
+
+                            <th>Email</th>
+
+                            <th>Phone</th>
+
+                            <th>Program</th>
+
+                            <th>Message</th>
+
+                            <th>Date</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="bookingsTableBody">
+
+                        <!-- JavaScript will load bookings -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

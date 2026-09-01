@@ -16,7 +16,7 @@
 
     <style>
 
-        /* =======================================
+        /* ========================================
            RESET
         ======================================== */
 
@@ -1723,98 +1723,90 @@
 
         <section id="booking" class="booking">
 
-            <div class="booking-content">
+```
+<div class="booking-content">
 
-                <div class="section-title">
+    <div class="section-title">
+        <small>START YOUR JOURNEY</small>
+        <h2>Book A Meditation Session</h2>
+    </div>
 
-                    <small>START YOUR JOURNEY</small>
+    <form class="booking-form" id="bookingForm">
 
-                    <h2>Book A Meditation Session</h2>
+        <div class="form-group">
+            <label for="name">Full Name</label>
 
-                </div>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+        </div>
 
+        <div class="form-group">
+            <label for="email">Email</label>
 
-                <form class="booking-form"
-                      id="bookingForm">
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+        </div>
 
-                    <div class="form-group">
+        <div class="form-group">
+            <label for="phone">Phone</label>
 
-                        <label for="name">Full Name</label>
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter your phone number"
+            >
+        </div>
 
-                        <input type="text"
-                               id="name"
-                               placeholder="Enter your name"
-                               required>
+        <div class="form-group">
+            <label for="program">Choose Program</label>
 
-                    </div>
+            <select id="program" name="program" required>
+                <option value="">Select program</option>
+                <option value="Mindfulness Meditation">Mindfulness Meditation</option>
+                <option value="Breathing Meditation">Breathing Meditation</option>
+                <option value="Morning Meditation">Morning Meditation</option>
+                <option value="Stress Relief Meditation">Stress Relief Meditation</option>
+                <option value="Healing Session">Healing Session</option>
+                <option value="Personal Wellness">Personal Wellness</option>
+            </select>
+        </div>
 
+        <div class="form-group full">
+            <label for="message">Message</label>
 
-                    <div class="form-group">
+            <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Write your message"
+            ></textarea>
+        </div>
 
-                        <label for="email">Email</label>
+        <div class="form-submit">
+            <button type="submit" class="btn">
+                BOOK NOW
+            </button>
+        </div>
 
-                        <input type="email"
-                               id="email"
-                               placeholder="Enter your email"
-                               required>
+        <p id="bookingStatus" class="booking-status"></p>
 
-                    </div>
+    </form>
 
+</div>
+```
 
-                    <div class="form-group">
-
-                        <label for="phone">Phone</label>
-
-                        <input type="tel"
-                               id="phone"
-                               placeholder="Enter your phone number">
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="program">Choose Program</label>
-
-                        <select id="program" required>
-
-                            <option value="">Select a program</option>
-                            <option>Mindfulness Meditation</option>
-                            <option>Breathing Meditation</option>
-                            <option>Morning Meditation</option>
-                            <option>Stress Relief Meditation</option>
-                            <option>Healing Session</option>
-                            <option>Personal Wellness</option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group full">
-
-                        <label for="message">Message</label>
-
-                        <textarea id="message"
-                                  rows="5"
-                                  placeholder="Write your message"></textarea>
-
-                    </div>
-
-
-                    <div class="form-submit">
-
-                        <button type="submit" class="btn">
-                            BOOK NOW
-                        </button>
-
-                    </div>
-
-                </form>
-
-            </div>
-
-        </section>
+</section>
 
 
         <!-- FAQ -->
@@ -2500,81 +2492,7 @@
            BOOKING FORM
         ======================================== */
 
-        bookingForm.addEventListener(
-            "submit",
-            function (event) {
-
-                event.preventDefault();
-
-
-                const name =
-                    document.getElementById("name")
-                        .value
-                        .trim();
-
-                const email =
-                    document.getElementById("email")
-                        .value
-                        .trim();
-
-                const program =
-                    document.getElementById("program")
-                        .value;
-
-
-                if (
-                    name.length < 2
-                ) {
-
-                    alert(
-                        "Please enter your full name."
-                    );
-
-                    return;
-
-                }
-
-
-                if (
-                    email === "" ||
-                    !email.includes("@")
-                ) {
-
-                    alert(
-                        "Please enter a valid email address."
-                    );
-
-                    return;
-
-                }
-
-
-                if (
-                    program === ""
-                ) {
-
-                    alert(
-                        "Please select a program."
-                    );
-
-                    return;
-
-                }
-
-
-                alert(
-                    "Thank you, " +
-                    name +
-                    "! Your booking request has been received successfully."
-                );
-
-
-                bookingForm.reset();
-
-            }
-        );
-
-
+        
         /* ========================================
            BACK TO TOP
         ======================================== */
@@ -2610,6 +2528,88 @@
 
             }
         );
+/* =====================================================
+BOOKING FORM → NODE.JS → MONGODB
+===================================================== */
+
+bookingForm.addEventListener("submit", async function (event) {
+
+
+event.preventDefault();
+
+const bookingData = {
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    program: document.getElementById("program").value,
+    message: document.getElementById("message").value.trim()
+};
+
+if (
+    !bookingData.name ||
+    !bookingData.email ||
+    !bookingData.phone ||
+    !bookingData.program
+) {
+    alert("Please fill all required fields.");
+    return;
+}
+
+const submitButton =
+    bookingForm.querySelector('button[type="submit"]');
+
+const originalText = submitButton.textContent;
+
+try {
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+
+    const response = await fetch("/api/bookings", {
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(bookingData)
+    });
+
+    const result = await response.json();
+
+    console.log("MongoDB response:", result);
+
+    if (!response.ok) {
+        throw new Error(
+            result.message || "Booking failed."
+        );
+    }
+
+    alert(
+        "Thank you, " +
+        bookingData.name +
+        "! Your booking has been saved successfully."
+    );
+
+    bookingForm.reset();
+
+} catch (error) {
+
+    console.error("Booking error:", error);
+
+    alert(
+        "Booking failed: " + error.message
+    );
+
+} finally {
+
+    submitButton.disabled = false;
+    submitButton.textContent = originalText;
+
+}
+
+
+});
 
     </script>
 

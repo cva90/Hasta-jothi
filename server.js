@@ -372,7 +372,9 @@ app.get(
 /* =========================================
    ADMIN LOGIN
 ========================================= */
-
+console.log("ADMIN_EMAIL exists:", !!process.env.ADMIN_EMAIL);
+console.log("ADMIN_PASSWORD exists:", !!process.env.ADMIN_PASSWORD);
+console.log("ADMIN_EMAIL value:", process.env.ADMIN_EMAIL);
 app.post(
     "/api/admin/login",
     (req, res) => {

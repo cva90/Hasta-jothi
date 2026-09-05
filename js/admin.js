@@ -19,7 +19,7 @@ if (menuToggle && adminSidebar) {
     });
 
 }
-    const API_URL = "http://localhost:3000";
+   const API_URL = "https://hasta-jothi.onrender.com";
     let allBookings = [];
 let currentPage = 1;
 

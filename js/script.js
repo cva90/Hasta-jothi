@@ -987,193 +987,124 @@ document.addEventListener("DOMContentLoaded", () => {
    12. BOOKING FORM + MONGODB
 ===================================================== */
 
-if (bookingForm) {
+/* Helper: pause for a given number of milliseconds */
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-    bookingForm.addEventListener("submit", async function (event) {
+/* Helper: send the booking, retrying if the free Render
+   server is asleep and returns its "waking up" HTML page
+   instead of JSON. */
+async function submitBookingWithRetry(bookingData, submitButton, originalText, attempt) {
 
-        event.preventDefault();
+    attempt = attempt || 1;
+    const MAX_ATTEMPTS = 3;
 
-        const name =
-            document.getElementById("name").value.trim();
+    try {
 
-        const email =
-            document.getElementById("email").value.trim();
+        const response = await fetch("https://hasta-jothi.onrender.com/api/bookings", {
+            method: "POST",
 
-        const phone =
-            document.getElementById("phone").value.trim();
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-        const program =
-            document.getElementById("program").value.trim();
+            body: JSON.stringify(bookingData)
+        });
 
-        const message =
-            document.getElementById("message").value.trim();
+        const responseText = await response.text();
 
-
-        /* VALIDATION */
-
-        if (!name || !email || !phone || !program) {
-
-            alert(
-                "Please fill Name, Email, Phone and Program."
-            );
-
-            return;
-        }
-
-
-        /* SUBMIT BUTTON */
-
-        const submitButton =
-            bookingForm.querySelector(
-                'button[type="submit"]'
-            );
-
-        const originalText =
-            submitButton
-                ? submitButton.innerText
-                : "Book Session";
-
-
-        if (submitButton) {
-
-            submitButton.disabled = true;
-            submitButton.innerText = "Submitting...";
-
-        }
-
+        let result;
 
         try {
-
-            /* SEND BOOKING TO RENDER */
-
-            const response = await fetch(
-                "https://hasta-jothi.onrender.com/api/bookings",
-                {
-                    method: "POST",
-
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-
-                    body: JSON.stringify({
-
-                        name: name,
-                        email: email,
-                        phone: phone,
-                        program: program,
-                        message: message
-
-                    })
-                }
-            );
-
-
-            /* READ RESPONSE ONLY ONCE */
-
-            const responseText =
-                await response.text();
-
-
-            console.log(
-                "Booking HTTP Status:",
-                response.status
-            );
-
-            console.log(
-                "Booking Server Response:",
-                responseText
-            );
-
-
-            /* CONVERT RESPONSE TO JSON */
-
-            let result;
-
-            try {
-
-                result =
-                    JSON.parse(responseText);
-
-            } catch (jsonError) {
-
-                console.error(
-                    "Invalid JSON response:",
-                    responseText
-                );
-
-                throw new Error(
-                    "Server returned an invalid response."
-                );
-
-            }
-
-
-            /* CHECK SERVER RESPONSE */
-
-            if (!response.ok || !result.success) {
-
-                throw new Error(
-                    result.message ||
-                    "Booking failed."
-                );
-
-            }
-
-
-            /* SUCCESS */
-
-            console.log(
-                "Booking saved successfully:",
-                result
-            );
-
-
-            alert(
-                "Thank you, " +
-                name +
-                "! Your booking has been saved successfully."
-            );
-
-
-            /* CLEAR FORM */
-
-            bookingForm.reset();
-
-
-        } catch (error) {
-
-            console.error(
-                "Booking error:",
-                error
-            );
-
-
-            alert(
-                "Booking failed: " +
-                error.message
-            );
-
-
-        } finally {
-
-            if (submitButton) {
-
-                submitButton.disabled = false;
-
-                submitButton.innerText =
-                    originalText;
-
-            }
-
+            result = JSON.parse(responseText);
+        } catch (parseError) {
+            throw new Error("SERVER_STARTING");
         }
 
-    });
+        console.log("MongoDB response:", result);
 
+        if (!response.ok) {
+            throw new Error(
+                result.message || "Booking failed."
+            );
+        }
+
+        alert(
+            "Thank you, " +
+            bookingData.name +
+            "! Your booking has been saved successfully."
+        );
+
+        bookingForm.reset();
+
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+
+    } catch (error) {
+
+        console.error("Booking error (attempt " + attempt + "):", error);
+
+        const isServerStarting = error.message === "SERVER_STARTING";
+
+        if (isServerStarting && attempt < MAX_ATTEMPTS) {
+
+            submitButton.textContent = "Server starting, please wait...";
+
+            await wait(8000);
+
+            return submitBookingWithRetry(
+                bookingData, submitButton, originalText, attempt + 1
+            );
+        }
+
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
+
+        if (isServerStarting) {
+            alert(
+                "Our server is waking up (this can take up to a minute on the free plan). " +
+                "Please wait a few seconds and press Book Now again."
+            );
+        } else {
+            alert("Booking failed: " + error.message);
+        }
+    }
 }
-   
 
+bookingForm.addEventListener("submit", async function (event) {
 
+    event.preventDefault();
 
+    const bookingData = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        program: document.getElementById("program").value,
+        message: document.getElementById("message").value.trim()
+    };
+
+    if (
+        !bookingData.name ||
+        !bookingData.email ||
+        !bookingData.phone ||
+        !bookingData.program
+    ) {
+        alert("Please fill all required fields.");
+        return;
+    }
+
+    const submitButton =
+        bookingForm.querySelector('button[type="submit"]');
+
+    const originalText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+
+    await submitBookingWithRetry(bookingData, submitButton, originalText);
+
+});
           
 
 

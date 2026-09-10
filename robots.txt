@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cva90.github.io/Hasta-Jothi/sitemap.xml
+Sitemap: https://cva90.github.io/Hasta-jothi/sitemap.xml
